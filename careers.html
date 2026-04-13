@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers — Factor42</title>
+  <meta name="description" content="Join Factor42 — a fully remote team building the future of digital ad operations. We use AI to maximize impact, but our people make every decision that matters." />
+  <meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; background-color: #F0F4FF; color: #0A0F1E; -webkit-font-smoothing: antialiased; margin: 0; }
+
+    .gradient-text-blue { background: linear-gradient(135deg,#0066FF,#00B4D8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-text      { background: linear-gradient(135deg,#0052CC,#0066FF 50%,#00B4D8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .glass-card { background: rgba(255,255,255,.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(0,102,255,.12); box-shadow: 0 2px 16px rgba(0,102,255,.06); }
+
+    .btn-primary { background: linear-gradient(135deg,#0066FF,#0052CC); transition: filter .2s, transform .15s; }
+    .btn-primary:hover  { filter: brightness(1.12); }
+    .btn-primary:active { transform: scale(.98); }
+
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(0,102,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,102,255,.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    /* Search & filter */
+    .search-input {
+      width: 100%; padding: 0.75rem 1rem 0.75rem 2.75rem;
+      border-radius: 10px; border: 1px solid rgba(0,102,255,.18);
+      background: rgba(255,255,255,.95); font-size: 0.9rem; color: #0A0F1E;
+      outline: none; transition: border-color .18s, box-shadow .18s;
+      font-family: 'Inter', sans-serif;
+    }
+    .search-input:focus { border-color: #0066FF; box-shadow: 0 0 0 3px rgba(0,102,255,.1); }
+    .search-input::placeholder { color: #94a3b8; }
+
+    /* Filter pills */
+    .filter-pill {
+      padding: 0.45rem 1rem; border-radius: 9999px; font-size: 0.8rem; font-weight: 600;
+      border: 1px solid rgba(0,102,255,.2); background: rgba(255,255,255,.9);
+      color: #475569; cursor: pointer; transition: all .18s; white-space: nowrap;
+      user-select: none;
+    }
+    .filter-pill:hover { border-color: #0066FF; color: #0066FF; background: rgba(0,102,255,.05); }
+    .filter-pill.active { border-color: #0066FF; background: #0066FF; color: white; }
+
+    /* Job card */
+    .job-card {
+      background: rgba(255,255,255,.9); border: 1px solid rgba(0,102,255,.1);
+      border-radius: 16px; padding: 1.25rem 1.5rem;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+      cursor: pointer;
+    }
+    .job-card:hover { border-color: rgba(0,102,255,.35); box-shadow: 0 6px 24px rgba(0,102,255,.1); transform: translateY(-2px); }
+    .job-card.hidden-card { display: none; }
+
+    /* Dept badge */
+    .dept-badge { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.25rem 0.65rem; border-radius: 9999px; font-size: 0.72rem; font-weight: 600; }
+
+    /* Value card */
+    .value-card { background: rgba(255,255,255,.85); border: 1px solid rgba(0,102,255,.1); border-radius: 20px; padding: 1.75rem; transition: box-shadow .2s; }
+    .value-card:hover { box-shadow: 0 8px 32px rgba(0,102,255,.1); }
+
+    /* Reveal */
+    .reveal { opacity:0; transform:translateY(22px); transition: opacity .6s ease-out, transform .6s ease-out; }
+    .reveal.revealed { opacity:1; transform:none; }
+
+    /* No results */
+    #no-results { display: none; }
+
+    @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
+    .anim-float { animation: float 4s ease-in-out infinite; }
+
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; } }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="fixed top-0 left-0 right-0 z-50 py-4 border-b" style="background:rgba(240,244,255,.97);border-color:rgba(0,102,255,.1);backdrop-filter:blur(16px)">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <a href="adfulfill-landing.html" class="text-2xl font-bold tracking-tight text-gray-900" style="font-family:'Plus Jakarta Sans',sans-serif">Factor<span class="gradient-text-blue">42</span></a>
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="adfulfill-landing.html#services" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Services</a>
+      <a href="about.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">About</a>
+      <a href="blog.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Blog</a>
+      <a href="#open-roles" class="text-sm font-semibold text-blue-600">Open Roles</a>
+      <a href="consultation.html" class="btn-primary text-sm font-semibold text-white px-5 py-2.5 rounded-lg">Get Started</a>
+    </nav>
+  </div>
+</header>
+
+<main class="pt-20">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="grid-bg py-20 px-6 relative overflow-hidden">
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-20 pointer-events-none" style="background:radial-gradient(circle,#0066FF,transparent 70%)"></div>
+    <div class="absolute -bottom-16 -left-16 w-72 h-72 rounded-full opacity-15 pointer-events-none" style="background:radial-gradient(circle,#00B4D8,transparent 70%)"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-blue-600 mb-5 px-3 py-1 rounded-full" style="background:rgba(0,102,255,.08);border:1px solid rgba(0,102,255,.16)">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        We're Hiring — 100% Remote
+      </p>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6" style="font-family:'Plus Jakarta Sans',sans-serif">
+        Build the Future of<br><span class="gradient-text">Ad Operations.</span><br>From Anywhere.
+      </h1>
+      <p class="text-slate-500 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        At Factor42, we use AI everywhere we can — so our people can focus on what only humans do best: judgment, relationships, and decisions that genuinely improve our customers' outcomes.
+      </p>
+
+      <!-- Quick stats -->
+      <div class="flex flex-wrap justify-center gap-4 mb-10">
+        <div class="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.14);color:#334155">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          Async-first culture
+        </div>
+        <div class="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.14);color:#334155">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Work from anywhere
+        </div>
+        <div class="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.14);color:#334155">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          AI-powered workflows
+        </div>
+        <div class="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.14);color:#334155">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          High-growth
+        </div>
+      </div>
+
+      <a href="#open-roles" class="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-white shadow-lg">
+        See Open Roles
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ CULTURE ═══ -->
+  <section class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <p class="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-3">Our Culture</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4" style="font-family:'Plus Jakarta Sans',sans-serif">Humans First. AI Always.</h2>
+        <p class="text-slate-500 max-w-xl mx-auto text-base leading-relaxed">We believe the best work happens when talented people are freed from busywork. AI handles the repetitive — our team handles everything that matters.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="value-card reveal">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,102,255,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="font-bold text-base mb-2" style="font-family:'Plus Jakarta Sans',sans-serif">Humans Make the Call</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">AI drafts, suggests, and accelerates. But every decision that touches a customer — every strategy, every escalation, every relationship — is owned by a human on our team.</p>
+        </div>
+
+        <div class="value-card reveal" style="transition-delay:.08s">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,102,255,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 class="font-bold text-base mb-2" style="font-family:'Plus Jakarta Sans',sans-serif">AI as Your Co-Pilot</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">We embed AI into every workflow — from campaign QA to report generation. Our people don't compete with AI; they're amplified by it to deliver 10× the output.</p>
+        </div>
+
+        <div class="value-card reveal" style="transition-delay:.16s">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,102,255,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <h3 class="font-bold text-base mb-2" style="font-family:'Plus Jakarta Sans',sans-serif">Fully Remote, Genuinely Flexible</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">We're async-first. Work from wherever you do your best thinking. No mandatory facetime — we trust our team and measure what actually matters: outcomes.</p>
+        </div>
+
+        <div class="value-card reveal" style="transition-delay:.04s">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,102,255,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="font-bold text-base mb-2" style="font-family:'Plus Jakarta Sans',sans-serif">Radically Inclusive Hiring</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">We hire based on capability and drive, not geography or pedigree. The best ad ops minds are everywhere — we want them all on our team.</p>
+        </div>
+
+        <div class="value-card reveal" style="transition-delay:.12s">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,102,255,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 class="font-bold text-base mb-2" style="font-family:'Plus Jakarta Sans',sans-serif">Move Fast, Own Your Work</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">No bureaucracy, no 6-level approvals. You'll have real responsibility from day one, and your work visibly moves the needle for 50+ agencies and media companies.</p>
+        </div>
+
+        <div class="value-card reveal" style="transition-delay:.2s">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,102,255,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="font-bold text-base mb-2" style="font-family:'Plus Jakarta Sans',sans-serif">Always Learning</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">Paid learning budget, access to the latest AI tools, and a team that shares knowledge openly. We grow together — and we expect you to outgrow your role on purpose.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BENEFITS ═══ -->
+  <section class="py-16 px-6" style="background:rgba(255,255,255,.5)">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-3">Benefits</p>
+        <h2 class="text-3xl font-bold" style="font-family:'Plus Jakarta Sans',sans-serif">Everything You Need to Do Your Best Work</h2>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 reveal" style="transition-delay:.1s">
+
+        <div class="flex flex-col items-start gap-2 p-5 rounded-2xl" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <p class="text-sm font-semibold text-gray-800">Remote-first</p>
+          <p class="text-xs text-slate-500 leading-relaxed">Work from home, a café, or anywhere with a good connection</p>
+        </div>
+
+        <div class="flex flex-col items-start gap-2 p-5 rounded-2xl" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <p class="text-sm font-semibold text-gray-800">Home Office Stipend</p>
+          <p class="text-xs text-slate-500 leading-relaxed">$1,000 setup allowance + annual refresh budget</p>
+        </div>
+
+        <div class="flex flex-col items-start gap-2 p-5 rounded-2xl" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          <p class="text-sm font-semibold text-gray-800">Learning Budget</p>
+          <p class="text-xs text-slate-500 leading-relaxed">$1,500/year for courses, certifications, and conferences</p>
+        </div>
+
+        <div class="flex flex-col items-start gap-2 p-5 rounded-2xl" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <p class="text-sm font-semibold text-gray-800">Health Coverage</p>
+          <p class="text-xs text-slate-500 leading-relaxed">Comprehensive medical, dental, and vision benefits</p>
+        </div>
+
+        <div class="flex flex-col items-start gap-2 p-5 rounded-2xl" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          <p class="text-sm font-semibold text-gray-800">Flexible PTO</p>
+          <p class="text-xs text-slate-500 leading-relaxed">Unlimited PTO policy — we trust you to recharge when you need it</p>
+        </div>
+
+        <div class="flex flex-col items-start gap-2 p-5 rounded-2xl" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <p class="text-sm font-semibold text-gray-800">AI Tools Access</p>
+          <p class="text-xs text-slate-500 leading-relaxed">Full access to the latest AI tools — Claude, GPT, Perplexity, and more</p>
+        </div>
+
+        <div class="flex flex-col items-start gap-2 p-5 rounded-2xl" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <p class="text-sm font-semibold text-gray-800">Competitive Pay</p>
+          <p class="text-xs text-slate-500 leading-relaxed">Market-rate salaries benchmarked globally + performance bonuses</p>
+        </div>
+
+        <div class="flex flex-col items-start gap-2 p-5 rounded-2xl" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <p class="text-sm font-semibold text-gray-800">Annual Retreats</p>
+          <p class="text-xs text-slate-500 leading-relaxed">We get together once a year — all expenses paid, somewhere great</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ OPEN ROLES ═══ -->
+  <section id="open-roles" class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+
+      <div class="text-center mb-12 reveal">
+        <p class="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-3">Open Positions</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">Find Your Role</h2>
+        <p class="text-slate-500 max-w-lg mx-auto text-base">All positions are fully remote and open to candidates worldwide.</p>
+      </div>
+
+      <!-- Search + Filter -->
+      <div class="reveal mb-8" style="transition-delay:.05s">
+        <!-- Search bar -->
+        <div class="relative mb-4">
+          <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" id="role-search" class="search-input" placeholder="Search roles, skills, or keywords…" />
+        </div>
+        <!-- Filter pills -->
+        <div class="flex flex-wrap gap-2" id="filter-pills">
+          <button class="filter-pill active" data-dept="all">All Departments</button>
+          <button class="filter-pill" data-dept="ad-ops">Ad Operations</button>
+          <button class="filter-pill" data-dept="sales">Sales &amp; Marketing</button>
+          <button class="filter-pill" data-dept="engineering">Engineering &amp; AI</button>
+          <button class="filter-pill" data-dept="finance">Finance &amp; Accounting</button>
+          <button class="filter-pill" data-dept="people">People &amp; Culture</button>
+          <button class="filter-pill" data-dept="client-success">Client Success</button>
+        </div>
+      </div>
+
+      <!-- Results count -->
+      <p class="text-sm text-slate-400 mb-5 reveal" id="results-count" style="transition-delay:.08s"></p>
+
+      <!-- Job listings -->
+      <div class="flex flex-col gap-4" id="jobs-list">
+
+        <!-- AD OPS -->
+        <div class="job-card" data-dept="ad-ops" data-title="Senior Ad Trafficker" data-tags="ad trafficking dsp campaign launch google meta tiktok">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                <span class="dept-badge" style="background:rgba(0,102,255,.1);color:#0066FF;">Ad Operations</span>
+                <span class="dept-badge" style="background:rgba(52,168,83,.1);color:#1a7a38;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  Remote
+                </span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base" style="font-family:'Plus Jakarta Sans',sans-serif">Senior Ad Trafficker</h3>
+              <p class="text-sm text-slate-500 mt-1">Full-time · Global · Mid–Senior level</p>
+            </div>
+            <a href="consultation.html" class="btn-primary flex-shrink-0 px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">Apply Now</a>
+          </div>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">Own end-to-end campaign trafficking across Google, Meta, DV360, and TTD for our growing client portfolio. You'll leverage AI-assisted QA tools to catch errors before they cost our clients money.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:#F0F4FF;color:#0066FF;">DV360</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:#F0F4FF;color:#0066FF;">Google Ads</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:#F0F4FF;color:#0066FF;">Meta</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:#F0F4FF;color:#0066FF;">Campaign Manager 360</span>
+          </div>
+        </div>
+
+        <div class="job-card" data-dept="ad-ops" data-title="Ad Operations Manager" data-tags="ad ops manager campaign trafficking programmatic optimization">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                <span class="dept-badge" style="background:rgba(0,102,255,.1);color:#0066FF;">Ad Operations</span>
+                <span class="dept-badge" style="background:rgba(52,168,83,.1);color:#1a7a38;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  Remote
+                </span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base" style="font-family:'Plus Jakarta Sans',sans-serif">Ad Operations Manager</h3>
+              <p class="text-sm text-slate-500 mt-1">Full-time · Global · Senior level</p>
+            </div>
+            <a href="consultation.html" class="btn-primary flex-shrink-0 px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">Apply Now</a>
+          </div>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">Lead a pod of traffickers and analysts, own SLA delivery for a book of agency clients, and drive process improvements using our AI-assisted ops stack. You'll be the escalation point that keeps everything running on time.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:#F0F4FF;color:#0066FF;">Team Leadership</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:#F0F4FF;color:#0066FF;">Programmatic</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:#F0F4FF;color:#0066FF;">SLA Management</span>
+          </div>
+        </div>
+
+        <div class="job-card" data-dept="ad-ops" data-title="Programmatic Campaign Analyst" data-tags="programmatic analyst reporting pacing optimization dsp">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                <span class="dept-badge" style="background:rgba(0,102,255,.1);color:#0066FF;">Ad Operations</span>
+                <span class="dept-badge" style="background:rgba(52,168,83,.1);color:#1a7a38;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  Remote
+                </span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base" style="font-family:'Plus Jakarta Sans',sans-serif">Programmatic Campaign Analyst</h3>
+              <p class="text-sm text-slate-500 mt-1">Full-time · Global · Entry–Mid level</p>
+            </div>
+            <a href="consultation.html" class="btn-primary flex-shrink-0 px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">Apply Now</a>
+          </div>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">Monitor campaign pacing, pull performance data across platforms, and deliver daily/weekly reports to clients. AI tools handle the data aggregation — you interpret the story and flag the issues that matter.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:#F0F4FF;color:#0066FF;">Reporting</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:#F0F4FF;color:#0066FF;">Pacing</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:#F0F4FF;color:#0066FF;">Excel / Looker Studio</span>
+          </div>
+        </div>
+
+        <!-- ENGINEERING -->
+        <div class="job-card" data-dept="engineering" data-title="AI Automation Engineer" data-tags="ai automation python apis engineering machine learning llm">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                <span class="dept-badge" style="background:rgba(139,92,246,.12);color:#7c3aed;">Engineering &amp; AI</span>
+                <span class="dept-badge" style="background:rgba(52,168,83,.1);color:#1a7a38;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  Remote
+                </span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base" style="font-family:'Plus Jakarta Sans',sans-serif">AI Automation Engineer</h3>
+              <p class="text-sm text-slate-500 mt-1">Full-time · Global · Mid–Senior level</p>
+            </div>
+            <a href="consultation.html" class="btn-primary flex-shrink-0 px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">Apply Now</a>
+          </div>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">Build and maintain the AI-powered automation layer that makes our ad ops team 10× more productive. You'll integrate LLMs, ad platform APIs, and internal tooling to eliminate manual repetition across the entire campaign lifecycle.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(139,92,246,.08);color:#7c3aed;">Python</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(139,92,246,.08);color:#7c3aed;">LLM / RAG</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(139,92,246,.08);color:#7c3aed;">Google Ads API</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(139,92,246,.08);color:#7c3aed;">Zapier / n8n</span>
+          </div>
+        </div>
+
+        <div class="job-card" data-dept="engineering" data-title="Full-Stack Developer" data-tags="fullstack developer react node typescript dashboard reporting">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                <span class="dept-badge" style="background:rgba(139,92,246,.12);color:#7c3aed;">Engineering &amp; AI</span>
+                <span class="dept-badge" style="background:rgba(52,168,83,.1);color:#1a7a38;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  Remote
+                </span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base" style="font-family:'Plus Jakarta Sans',sans-serif">Full-Stack Developer — Reporting Platform</h3>
+              <p class="text-sm text-slate-500 mt-1">Full-time · Global · Mid level</p>
+            </div>
+            <a href="consultation.html" class="btn-primary flex-shrink-0 px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">Apply Now</a>
+          </div>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">Build the client-facing dashboards and internal tools our ad ops team depends on daily. You'll work on a modern TypeScript stack and have direct input on product direction — no PM bottlenecks.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(139,92,246,.08);color:#7c3aed;">React</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(139,92,246,.08);color:#7c3aed;">TypeScript</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(139,92,246,.08);color:#7c3aed;">Node.js</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(139,92,246,.08);color:#7c3aed;">PostgreSQL</span>
+          </div>
+        </div>
+
+        <!-- SALES & MARKETING -->
+        <div class="job-card" data-dept="sales" data-title="Account Executive" data-tags="sales account executive b2b agency media outbound revenue">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                <span class="dept-badge" style="background:rgba(251,191,36,.15);color:#b45309;">Sales &amp; Marketing</span>
+                <span class="dept-badge" style="background:rgba(52,168,83,.1);color:#1a7a38;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  Remote
+                </span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base" style="font-family:'Plus Jakarta Sans',sans-serif">Account Executive — Agencies &amp; Media Companies</h3>
+              <p class="text-sm text-slate-500 mt-1">Full-time · Global · Mid–Senior level</p>
+            </div>
+            <a href="consultation.html" class="btn-primary flex-shrink-0 px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">Apply Now</a>
+          </div>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">Own the full sales cycle for mid-market and enterprise agencies. You understand the ad ops workflow deeply, speak the language of media buyers, and can clearly articulate the ROI of outsourcing operations to Factor42.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(251,191,36,.12);color:#b45309;">B2B SaaS / Services</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(251,191,36,.12);color:#b45309;">Agency Sales</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(251,191,36,.12);color:#b45309;">CRM / HubSpot</span>
+          </div>
+        </div>
+
+        <div class="job-card" data-dept="sales" data-title="Content Marketing Manager" data-tags="content marketing seo b2b blog linkedin thought leadership">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                <span class="dept-badge" style="background:rgba(251,191,36,.15);color:#b45309;">Sales &amp; Marketing</span>
+                <span class="dept-badge" style="background:rgba(52,168,83,.1);color:#1a7a38;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  Remote
+                </span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base" style="font-family:'Plus Jakarta Sans',sans-serif">Content Marketing Manager</h3>
+              <p class="text-sm text-slate-500 mt-1">Full-time · Global · Mid level</p>
+            </div>
+            <a href="consultation.html" class="btn-primary flex-shrink-0 px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">Apply Now</a>
+          </div>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">Build Factor42's content engine — SEO, LinkedIn, newsletters, and long-form thought leadership targeting agency and media buyer audiences. You'll use AI to scale output while keeping every piece sharp and on-brand.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(251,191,36,.12);color:#b45309;">SEO</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(251,191,36,.12);color:#b45309;">B2B Content</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(251,191,36,.12);color:#b45309;">LinkedIn</span>
+          </div>
+        </div>
+
+        <!-- FINANCE -->
+        <div class="job-card" data-dept="finance" data-title="Revenue Operations Analyst" data-tags="finance revenue operations billing reconciliation accounting invoicing">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                <span class="dept-badge" style="background:rgba(16,185,129,.12);color:#065f46;">Finance &amp; Accounting</span>
+                <span class="dept-badge" style="background:rgba(52,168,83,.1);color:#1a7a38;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  Remote
+                </span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base" style="font-family:'Plus Jakarta Sans',sans-serif">Revenue Operations Analyst</h3>
+              <p class="text-sm text-slate-500 mt-1">Full-time · Global · Mid level</p>
+            </div>
+            <a href="consultation.html" class="btn-primary flex-shrink-0 px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">Apply Now</a>
+          </div>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">Own billing reconciliation, CPM reporting accuracy, and client invoicing across our managed ad spend book. You'll build automated workflows to catch discrepancies before they hit the client's inbox.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(16,185,129,.1);color:#065f46;">Billing Reconciliation</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(16,185,129,.1);color:#065f46;">Excel / Sheets</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(16,185,129,.1);color:#065f46;">QuickBooks / NetSuite</span>
+          </div>
+        </div>
+
+        <div class="job-card" data-dept="finance" data-title="Controller" data-tags="finance accounting controller gaap financial reporting cfo">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                <span class="dept-badge" style="background:rgba(16,185,129,.12);color:#065f46;">Finance &amp; Accounting</span>
+                <span class="dept-badge" style="background:rgba(52,168,83,.1);color:#1a7a38;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  Remote
+                </span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base" style="font-family:'Plus Jakarta Sans',sans-serif">Controller</h3>
+              <p class="text-sm text-slate-500 mt-1">Full-time · Global · Senior level</p>
+            </div>
+            <a href="consultation.html" class="btn-primary flex-shrink-0 px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">Apply Now</a>
+          </div>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">Own the financial close process, GAAP compliance, and financial reporting for a fast-growing remote-first company. You'll partner directly with leadership and build the financial infrastructure for scale.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(16,185,129,.1);color:#065f46;">GAAP</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(16,185,129,.1);color:#065f46;">Financial Close</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(16,185,129,.1);color:#065f46;">CPA preferred</span>
+          </div>
+        </div>
+
+        <!-- PEOPLE -->
+        <div class="job-card" data-dept="people" data-title="People Operations Manager" data-tags="people hr human resources talent remote culture operations">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                <span class="dept-badge" style="background:rgba(239,68,68,.1);color:#b91c1c;">People &amp; Culture</span>
+                <span class="dept-badge" style="background:rgba(52,168,83,.1);color:#1a7a38;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  Remote
+                </span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base" style="font-family:'Plus Jakarta Sans',sans-serif">People Operations Manager</h3>
+              <p class="text-sm text-slate-500 mt-1">Full-time · Global · Mid–Senior level</p>
+            </div>
+            <a href="consultation.html" class="btn-primary flex-shrink-0 px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">Apply Now</a>
+          </div>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">Build the people systems, onboarding experiences, and culture infrastructure that make Factor42 a place where top talent stays and thrives. You've done this for a distributed team before and know what async-first culture actually requires.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(239,68,68,.08);color:#b91c1c;">Remote Culture</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(239,68,68,.08);color:#b91c1c;">HRIS</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(239,68,68,.08);color:#b91c1c;">Global Employment</span>
+          </div>
+        </div>
+
+        <!-- CLIENT SUCCESS -->
+        <div class="job-card" data-dept="client-success" data-title="Client Success Manager" data-tags="client success account management csm agency media retention">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                <span class="dept-badge" style="background:rgba(0,180,216,.12);color:#0077a8;">Client Success</span>
+                <span class="dept-badge" style="background:rgba(52,168,83,.1);color:#1a7a38;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  Remote
+                </span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base" style="font-family:'Plus Jakarta Sans',sans-serif">Client Success Manager</h3>
+              <p class="text-sm text-slate-500 mt-1">Full-time · Global · Mid level</p>
+            </div>
+            <a href="consultation.html" class="btn-primary flex-shrink-0 px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">Apply Now</a>
+          </div>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">Own the relationship and outcomes for a portfolio of agency and media company clients. You're the voice of the client internally and the face of Factor42 externally — making sure every campaign delivers and every renewal is a no-brainer.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(0,180,216,.1);color:#0077a8;">Account Management</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(0,180,216,.1);color:#0077a8;">Digital Advertising</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(0,180,216,.1);color:#0077a8;">Retention</span>
+          </div>
+        </div>
+
+        <div class="job-card" data-dept="client-success" data-title="Senior Client Success Manager" data-tags="senior client success enterprise account management csm strategy">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                <span class="dept-badge" style="background:rgba(0,180,216,.12);color:#0077a8;">Client Success</span>
+                <span class="dept-badge" style="background:rgba(52,168,83,.1);color:#1a7a38;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  Remote
+                </span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base" style="font-family:'Plus Jakarta Sans',sans-serif">Senior Client Success Manager — Enterprise</h3>
+              <p class="text-sm text-slate-500 mt-1">Full-time · Global · Senior level</p>
+            </div>
+            <a href="consultation.html" class="btn-primary flex-shrink-0 px-5 py-2.5 rounded-lg text-sm font-semibold text-white text-center">Apply Now</a>
+          </div>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">Manage our highest-value enterprise accounts, run quarterly business reviews, and drive expansion revenue through a deep understanding of each client's business goals. You'll have direct access to leadership and shape how we serve large-scale clients.</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(0,180,216,.1);color:#0077a8;">Enterprise CSM</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(0,180,216,.1);color:#0077a8;">QBR Leadership</span>
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(0,180,216,.1);color:#0077a8;">Expansion Revenue</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- No results -->
+      <div id="no-results" class="text-center py-16">
+        <svg class="mx-auto mb-4 opacity-30" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <p class="text-slate-500 font-medium">No roles match your search.</p>
+        <p class="text-slate-400 text-sm mt-1">Try a different keyword or department filter.</p>
+        <button onclick="resetFilters()" class="mt-4 text-blue-600 text-sm font-semibold hover:underline">Clear filters</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ OPEN APPLICATION ═══ -->
+  <section class="py-16 px-6" style="background:rgba(255,255,255,.5)">
+    <div class="max-w-3xl mx-auto text-center reveal">
+      <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-6" style="background:rgba(0,102,255,.1)">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4" style="font-family:'Plus Jakarta Sans',sans-serif">Don't See a Fit?</h2>
+      <p class="text-slate-500 mb-8 leading-relaxed">We're always looking for exceptional people. If you believe in what we're building — AI-augmented ad ops run by people who genuinely care about outcomes — send us your story.</p>
+      <a href="mailto:careers@factor42.com" class="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-white shadow-md">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Send an Open Application
+      </a>
+      <p class="text-xs text-slate-400 mt-4">careers@factor42.com — we read every email</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t py-8 px-6" style="border-color:rgba(0,102,255,.1)">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-xs text-slate-500">&copy; 2026 Factor42, Inc. All rights reserved.</p>
+    <nav class="flex flex-wrap gap-4">
+      <a href="privacy-policy.html" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">Privacy Policy</a>
+      <a href="terms-of-service.html" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">Terms of Service</a>
+      <a href="sla.html" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">SLA</a>
+      <a href="security.html" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">Security</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal with fallback
+  const revealEls = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); } });
+  }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => obs.observe(el));
+  setTimeout(() => revealEls.forEach(el => el.classList.add('revealed')), 400);
+
+  // Search + filter logic
+  const jobs = Array.from(document.querySelectorAll('.job-card'));
+  const searchInput = document.getElementById('role-search');
+  const filterPills = document.querySelectorAll('.filter-pill');
+  const noResults = document.getElementById('no-results');
+  const resultsCount = document.getElementById('results-count');
+  let activeDept = 'all';
+
+  function updateJobs() {
+    const query = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+
+    jobs.forEach(card => {
+      const dept = card.dataset.dept;
+      const title = card.dataset.title.toLowerCase();
+      const tags  = card.dataset.tags.toLowerCase();
+      const matchDept = activeDept === 'all' || dept === activeDept;
+      const matchSearch = !query || title.includes(query) || tags.includes(query);
+      const show = matchDept && matchSearch;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+    resultsCount.textContent = visible === jobs.length
+      ? `Showing all ${visible} open positions`
+      : `${visible} position${visible !== 1 ? 's' : ''} found`;
+  }
+
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      filterPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      activeDept = pill.dataset.dept;
+      updateJobs();
+    });
+  });
+
+  searchInput.addEventListener('input', updateJobs);
+
+  function resetFilters() {
+    searchInput.value = '';
+    activeDept = 'all';
+    filterPills.forEach(p => p.classList.remove('active'));
+    document.querySelector('[data-dept="all"]').classList.add('active');
+    updateJobs();
+  }
+
+  // Init count
+  updateJobs();
+</script>
+</body>
+</html>

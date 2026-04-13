@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Factor42 | Ad Operations Insights</title>
+  <meta name="description" content="Insights, research, and perspectives on digital ad operations, programmatic advertising, and the future of campaign fulfillment from the Factor42 team." />
+  <meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; background-color: #F0F4FF; color: #0A0F1E; -webkit-font-smoothing: antialiased; margin: 0; }
+
+    .gradient-text-blue { background: linear-gradient(135deg,#0066FF,#00B4D8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-text      { background: linear-gradient(135deg,#0052CC,#0066FF 50%,#00B4D8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .btn-primary { background: linear-gradient(135deg,#0066FF,#0052CC); transition: filter .2s, transform .15s; }
+    .btn-primary:hover  { filter: brightness(1.12); }
+    .btn-primary:active { transform: scale(.98); }
+
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(0,102,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,102,255,.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    /* Article card */
+    .article-card { background: rgba(255,255,255,.9); border: 1px solid rgba(0,102,255,.1); border-radius: 20px; overflow: hidden; transition: border-color .2s, box-shadow .2s, transform .2s; display: flex; flex-direction: column; }
+    .article-card:hover { border-color: rgba(0,102,255,.3); box-shadow: 0 8px 32px rgba(0,102,255,.1); transform: translateY(-3px); }
+
+    /* Category pill */
+    .cat-pill { display: inline-block; padding: 0.2rem 0.65rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 700; letter-spacing: .02em; text-transform: uppercase; }
+
+    /* Featured card */
+    .featured-card { background: rgba(255,255,255,.92); border: 1px solid rgba(0,102,255,.14); border-radius: 24px; overflow: hidden; transition: box-shadow .2s; }
+    .featured-card:hover { box-shadow: 0 12px 40px rgba(0,102,255,.12); }
+
+    /* Filter pills */
+    .tag-pill { padding: 0.4rem 1rem; border-radius: 9999px; font-size: 0.78rem; font-weight: 600; border: 1px solid rgba(0,102,255,.2); background: rgba(255,255,255,.9); color: #475569; cursor: pointer; transition: all .18s; white-space: nowrap; user-select: none; }
+    .tag-pill:hover { border-color: #0066FF; color: #0066FF; }
+    .tag-pill.active { border-color: #0066FF; background: #0066FF; color: white; }
+
+    /* Reveal */
+    .reveal { opacity:0; transform:translateY(20px); transition: opacity .6s ease-out, transform .6s ease-out; }
+    .reveal.revealed { opacity:1; transform:none; }
+
+    .article-img { width: 100%; height: 180px; object-fit: cover; display: flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="fixed top-0 left-0 right-0 z-50 py-4 border-b" style="background:rgba(240,244,255,.97);border-color:rgba(0,102,255,.1);backdrop-filter:blur(16px)">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <a href="adfulfill-landing.html" class="text-2xl font-bold tracking-tight text-gray-900" style="font-family:'Plus Jakarta Sans',sans-serif">Factor<span class="gradient-text-blue">42</span></a>
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="adfulfill-landing.html#services" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Services</a>
+      <a href="about.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">About</a>
+      <a href="careers.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Careers</a>
+      <a href="blog.html" class="text-sm font-semibold text-blue-600">Blog</a>
+      <a href="consultation.html" class="btn-primary text-sm font-semibold text-white px-5 py-2.5 rounded-lg">Get Started</a>
+    </nav>
+  </div>
+</header>
+
+<main class="pt-20">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="grid-bg py-16 px-6 relative overflow-hidden">
+    <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-15 pointer-events-none" style="background:radial-gradient(circle,#0066FF,transparent 70%)"></div>
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <p class="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-4">The Factor42 Blog</p>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4 leading-tight" style="font-family:'Plus Jakarta Sans',sans-serif">
+        Insights on <span class="gradient-text">Ad Operations,</span><br>Digital Media &amp; AI
+      </h1>
+      <p class="text-slate-500 text-base sm:text-lg max-w-xl mx-auto">Research, perspectives, and hard-won lessons from the team that's executed over half a million campaigns across the digital landscape.</p>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURED ARTICLE ═══ -->
+  <section class="py-12 px-6">
+    <div class="max-w-5xl mx-auto reveal">
+      <a href="blog-trafficking-cost.html" class="featured-card grid lg:grid-cols-5 gap-0 block hover:no-underline">
+        <!-- Visual panel -->
+        <div class="lg:col-span-2 min-h-56 flex items-center justify-center relative overflow-hidden" style="background:linear-gradient(135deg,#0052CC 0%,#0066FF 50%,#00B4D8 100%)">
+          <div class="absolute inset-0 opacity-10" style="background-image:linear-gradient(rgba(255,255,255,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.15) 1px,transparent 1px);background-size:30px 30px"></div>
+          <div class="relative z-10 p-8 text-center">
+            <p class="text-5xl font-black text-white mb-1" style="font-family:'Plus Jakarta Sans',sans-serif">$2.4B</p>
+            <p class="text-blue-100 text-sm font-medium">Lost annually to ad trafficking errors</p>
+          </div>
+        </div>
+        <!-- Content -->
+        <div class="lg:col-span-3 p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-4 flex-wrap">
+              <span class="cat-pill" style="background:rgba(0,102,255,.1);color:#0066FF;">Featured</span>
+              <span class="cat-pill" style="background:rgba(239,68,68,.1);color:#b91c1c;">Industry Research</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 leading-snug" style="font-family:'Plus Jakarta Sans',sans-serif">The $2.4B Problem: How Ad Trafficking Errors Are Quietly Draining Agency Revenue</h2>
+            <p class="text-slate-500 text-sm leading-relaxed mb-5">A deep dive into the real financial cost of campaign trafficking errors — from missed launch dates and misapplied targeting to creative spec failures and billing discrepancies. The numbers are worse than most agencies want to admit.</p>
+          </div>
+          <div class="flex items-center justify-between flex-wrap gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:linear-gradient(135deg,#0066FF,#00B4D8)">F42</div>
+              <div>
+                <p class="text-xs font-semibold text-gray-700">Factor42 Research Team</p>
+                <p class="text-xs text-slate-400">April 8, 2026 · 9 min read</p>
+              </div>
+            </div>
+            <span class="text-sm font-semibold text-blue-600 flex items-center gap-1 hover:gap-2 transition-all">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ FILTER + GRID ═══ -->
+  <section class="pb-20 px-6">
+    <div class="max-w-5xl mx-auto">
+
+      <!-- Category filter -->
+      <div class="flex flex-wrap gap-2 mb-10 reveal">
+        <button class="tag-pill active" data-cat="all">All Topics</button>
+        <button class="tag-pill" data-cat="industry">Industry Research</button>
+        <button class="tag-pill" data-cat="ad-ops">Ad Operations</button>
+        <button class="tag-pill" data-cat="ai">AI &amp; Technology</button>
+        <button class="tag-pill" data-cat="programmatic">Programmatic</button>
+        <button class="tag-pill" data-cat="media">Media &amp; Publishing</button>
+      </div>
+
+      <!-- Article grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="articles-grid">
+
+        <!-- Article 1 -->
+        <article class="article-card reveal" data-cat="industry">
+          <div class="article-img" style="background:linear-gradient(135deg,#1e3a5f,#0066FF)">
+            <div class="text-center p-6">
+              <p class="text-3xl font-black text-white" style="font-family:'Plus Jakarta Sans',sans-serif">11</p>
+              <p class="text-blue-200 text-xs mt-1">Avg. platforms per team</p>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="cat-pill" style="background:rgba(239,68,68,.1);color:#b91c1c;">Industry Research</span>
+              <span class="text-xs text-slate-400">7 min read</span>
+            </div>
+            <h3 class="font-bold text-gray-900 text-base mb-2 leading-snug" style="font-family:'Plus Jakarta Sans',sans-serif">Platform Overload: The Average Digital Team Now Manages 11 Ad Platforms. Something Has to Give.</h3>
+            <p class="text-sm text-slate-500 leading-relaxed flex-1 mb-4">Platform proliferation has outpaced hiring. A 2025 survey of 400 digital agencies found teams managing an average of 11 ad platforms with the same headcount they had when they managed 4. The operational math doesn't work — and the cracks are showing.</p>
+            <div class="flex items-center justify-between mt-auto pt-4 border-t" style="border-color:rgba(0,102,255,.08)">
+              <div>
+                <p class="text-xs font-semibold text-gray-700">Factor42 Research</p>
+                <p class="text-xs text-slate-400">March 24, 2026</p>
+              </div>
+              <a href="blog-platform-overload.html" class="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1">Read <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="article-card reveal" style="transition-delay:.07s" data-cat="ad-ops">
+          <div class="article-img" style="background:linear-gradient(135deg,#065f46,#059669)">
+            <div class="text-center p-6">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.5" class="mx-auto mb-2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <p class="text-white text-xs font-semibold opacity-80">The Headcount Trap</p>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="cat-pill" style="background:rgba(0,102,255,.1);color:#0066FF;">Ad Operations</span>
+              <span class="text-xs text-slate-400">6 min read</span>
+            </div>
+            <h3 class="font-bold text-gray-900 text-base mb-2 leading-snug" style="font-family:'Plus Jakarta Sans',sans-serif">Why Hiring More Junior Traffickers to Scale Your Ad Ops Is the Wrong Move</h3>
+            <p class="text-sm text-slate-500 leading-relaxed flex-1 mb-4">More bodies in a broken system just creates more overhead. The agencies that are scaling efficiently in 2026 aren't hiring their way out of the operations problem — they're rearchitecting how the work gets done entirely.</p>
+            <div class="flex items-center justify-between mt-auto pt-4 border-t" style="border-color:rgba(0,102,255,.08)">
+              <div>
+                <p class="text-xs font-semibold text-gray-700">Marcus Webb</p>
+                <p class="text-xs text-slate-400">March 15, 2026</p>
+              </div>
+              <a href="blog-headcount-trap.html" class="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1">Read <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="article-card reveal" style="transition-delay:.14s" data-cat="ai">
+          <div class="article-img" style="background:linear-gradient(135deg,#4c1d95,#7c3aed)">
+            <div class="text-center p-6">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.5" class="mx-auto mb-2"><rect x="2" y="3" width="20" height="14" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M2 20h20"/></svg>
+              <p class="text-purple-200 text-xs font-semibold">2026 AI Adoption Report</p>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="cat-pill" style="background:rgba(124,58,237,.1);color:#7c3aed;">AI &amp; Technology</span>
+              <span class="text-xs text-slate-400">10 min read</span>
+            </div>
+            <h3 class="font-bold text-gray-900 text-base mb-2 leading-snug" style="font-family:'Plus Jakarta Sans',sans-serif">AI in Ad Operations: What's Hype, What's Shipping, and What's Actually Moving the Needle in 2026</h3>
+            <p class="text-sm text-slate-500 leading-relaxed flex-1 mb-4">We surveyed 250 ad ops professionals to separate the AI marketing noise from the tools genuinely changing how digital teams work. The results reveal a stark gap between early adopters and the majority still waiting to act.</p>
+            <div class="flex items-center justify-between mt-auto pt-4 border-t" style="border-color:rgba(0,102,255,.08)">
+              <div>
+                <p class="text-xs font-semibold text-gray-700">Factor42 Research</p>
+                <p class="text-xs text-slate-400">March 3, 2026</p>
+              </div>
+              <a href="blog-ai-ad-ops-2026.html" class="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1">Read <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 4 -->
+        <article class="article-card reveal" style="transition-delay:.04s" data-cat="ad-ops">
+          <div class="article-img" style="background:linear-gradient(135deg,#7c2d12,#ea580c)">
+            <div class="text-center p-6">
+              <p class="text-3xl font-black text-white" style="font-family:'Plus Jakarta Sans',sans-serif">24hr</p>
+              <p class="text-orange-200 text-xs mt-1">The cost of a single missed launch</p>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="cat-pill" style="background:rgba(0,102,255,.1);color:#0066FF;">Ad Operations</span>
+              <span class="text-xs text-slate-400">5 min read</span>
+            </div>
+            <h3 class="font-bold text-gray-900 text-base mb-2 leading-snug" style="font-family:'Plus Jakarta Sans',sans-serif">The Real Cost of a 24-Hour Campaign Launch Delay: It's Not Just the Impressions You're Missing</h3>
+            <p class="text-sm text-slate-500 leading-relaxed flex-1 mb-4">When a campaign goes live 24 hours late, the obvious loss is media delivery. But the true damage — client trust erosion, fee at-risk conversations, and team morale hits — compounds in ways that don't show up in post-campaign reports.</p>
+            <div class="flex items-center justify-between mt-auto pt-4 border-t" style="border-color:rgba(0,102,255,.08)">
+              <div>
+                <p class="text-xs font-semibold text-gray-700">Priya Nair</p>
+                <p class="text-xs text-slate-400">February 20, 2026</p>
+              </div>
+              <a href="blog-launch-delay-cost.html" class="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1">Read <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 5 -->
+        <article class="article-card reveal" style="transition-delay:.11s" data-cat="programmatic">
+          <div class="article-img" style="background:linear-gradient(135deg,#0c4a6e,#0284c7)">
+            <div class="text-center p-6">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.5" class="mx-auto mb-2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <p class="text-sky-200 text-xs font-semibold">Programmatic 2026</p>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="cat-pill" style="background:rgba(2,132,199,.1);color:#0284c7;">Programmatic</span>
+              <span class="text-xs text-slate-400">8 min read</span>
+            </div>
+            <h3 class="font-bold text-gray-900 text-base mb-2 leading-snug" style="font-family:'Plus Jakarta Sans',sans-serif">Fragmented Reporting Is Costing Programmatic Teams More Than They Think — Here's the Data</h3>
+            <p class="text-sm text-slate-500 leading-relaxed flex-1 mb-4">When campaign data lives across 6+ platforms, the act of assembling a weekly pacing report consumes an average of 4.5 analyst hours. Multiply that across a 20-client book and you've got a full-time job no one hired for — and no one notices until it breaks.</p>
+            <div class="flex items-center justify-between mt-auto pt-4 border-t" style="border-color:rgba(0,102,255,.08)">
+              <div>
+                <p class="text-xs font-semibold text-gray-700">Factor42 Research</p>
+                <p class="text-xs text-slate-400">February 7, 2026</p>
+              </div>
+              <a href="blog-fragmented-reporting.html" class="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1">Read <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 6 -->
+        <article class="article-card reveal" style="transition-delay:.18s" data-cat="media">
+          <div class="article-img" style="background:linear-gradient(135deg,#1e1b4b,#4338ca)">
+            <div class="text-center p-6">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.5" class="mx-auto mb-2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              <p class="text-indigo-200 text-xs font-semibold">Media &amp; Publishing</p>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="cat-pill" style="background:rgba(67,56,202,.1);color:#4338ca;">Media &amp; Publishing</span>
+              <span class="text-xs text-slate-400">7 min read</span>
+            </div>
+            <h3 class="font-bold text-gray-900 text-base mb-2 leading-snug" style="font-family:'Plus Jakarta Sans',sans-serif">How Publishers Are Rethinking Ad Ops as First-Party Data Becomes the New Competitive Moat</h3>
+            <p class="text-sm text-slate-500 leading-relaxed flex-1 mb-4">With third-party cookie deprecation fully in effect, publishers who treated ad operations as back-office admin are now scrambling. Those who invested in first-party data infrastructure and operational excellence are pulling away from the pack.</p>
+            <div class="flex items-center justify-between mt-auto pt-4 border-t" style="border-color:rgba(0,102,255,.08)">
+              <div>
+                <p class="text-xs font-semibold text-gray-700">Sofia Delgado</p>
+                <p class="text-xs text-slate-400">January 28, 2026</p>
+              </div>
+              <a href="blog-publisher-first-party.html" class="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1">Read <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 7 -->
+        <article class="article-card reveal" style="transition-delay:.07s" data-cat="ai">
+          <div class="article-img" style="background:linear-gradient(135deg,#134e4a,#0d9488)">
+            <div class="text-center p-6">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.5" class="mx-auto mb-2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              <p class="text-teal-200 text-xs font-semibold">AI Agents in Practice</p>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="cat-pill" style="background:rgba(13,148,136,.1);color:#0f766e;">AI &amp; Technology</span>
+              <span class="text-xs text-slate-400">11 min read</span>
+            </div>
+            <h3 class="font-bold text-gray-900 text-base mb-2 leading-snug" style="font-family:'Plus Jakarta Sans',sans-serif">AI Agents Are Reshaping Ad Operations. Here's What's Actually Deployed at Scale Right Now</h3>
+            <p class="text-sm text-slate-500 leading-relaxed flex-1 mb-4">From automated creative QA agents to real-time pacing monitors and intelligent trafficking routers — AI is moving from pilot programs into production ad ops infrastructure. We break down what's working, what's not, and what the org implications are for digital teams.</p>
+            <div class="flex items-center justify-between mt-auto pt-4 border-t" style="border-color:rgba(0,102,255,.08)">
+              <div>
+                <p class="text-xs font-semibold text-gray-700">Factor42 Team</p>
+                <p class="text-xs text-slate-400">January 14, 2026</p>
+              </div>
+              <a href="blog-ai-agents-deployed.html" class="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1">Read <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 8 -->
+        <article class="article-card reveal" style="transition-delay:.14s" data-cat="industry">
+          <div class="article-img" style="background:linear-gradient(135deg,#450a0a,#dc2626)">
+            <div class="text-center p-6">
+              <p class="text-3xl font-black text-white" style="font-family:'Plus Jakarta Sans',sans-serif">68%</p>
+              <p class="text-red-200 text-xs mt-1">of ops time is non-billable</p>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="cat-pill" style="background:rgba(239,68,68,.1);color:#b91c1c;">Industry Research</span>
+              <span class="text-xs text-slate-400">8 min read</span>
+            </div>
+            <h3 class="font-bold text-gray-900 text-base mb-2 leading-snug" style="font-family:'Plus Jakarta Sans',sans-serif">68% of Agency Ad Ops Time Is Non-Billable. The Benchmark Report Every Media Director Needs to See.</h3>
+            <p class="text-sm text-slate-500 leading-relaxed flex-1 mb-4">New benchmarking data from a cross-agency study reveals the staggering proportion of ad operations work that consumes staff hours but never shows up on a client invoice. Internal reporting, QA, platform admin, and error remediation are silently crushing agency margins.</p>
+            <div class="flex items-center justify-between mt-auto pt-4 border-t" style="border-color:rgba(0,102,255,.08)">
+              <div>
+                <p class="text-xs font-semibold text-gray-700">Factor42 Research</p>
+                <p class="text-xs text-slate-400">December 18, 2025</p>
+              </div>
+              <a href="blog-non-billable-ops.html" class="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1">Read <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 9 -->
+        <article class="article-card reveal" style="transition-delay:.21s" data-cat="programmatic">
+          <div class="article-img" style="background:linear-gradient(135deg,#0f172a,#1e40af)">
+            <div class="text-center p-6">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.5" class="mx-auto mb-2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              <p class="text-blue-200 text-xs font-semibold">DSP Landscape 2026</p>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="cat-pill" style="background:rgba(2,132,199,.1);color:#0284c7;">Programmatic</span>
+              <span class="text-xs text-slate-400">9 min read</span>
+            </div>
+            <h3 class="font-bold text-gray-900 text-base mb-2 leading-snug" style="font-family:'Plus Jakarta Sans',sans-serif">The DSP Consolidation That Didn't Happen: Why Agencies Are Still Managing Too Many Demand-Side Platforms</h3>
+            <p class="text-sm text-slate-500 leading-relaxed flex-1 mb-4">Industry analysts predicted DSP consolidation by 2025. Instead, the number of platforms agencies actively use has grown. CTV, retail media, and DOOH have added new DSPs to every media plan — and the ops complexity has followed. Here's how the best-run agencies are managing it.</p>
+            <div class="flex items-center justify-between mt-auto pt-4 border-t" style="border-color:rgba(0,102,255,.08)">
+              <div>
+                <p class="text-xs font-semibold text-gray-700">James Okonkwo</p>
+                <p class="text-xs text-slate-400">December 5, 2025</p>
+              </div>
+              <a href="blog-dsp-consolidation.html" class="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1">Read <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- No results -->
+      <div id="no-results" class="hidden text-center py-16">
+        <svg class="mx-auto mb-4 opacity-30" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <p class="text-slate-500 font-medium">No articles in this category yet.</p>
+        <button onclick="setFilter('all')" class="mt-3 text-blue-600 text-sm font-semibold hover:underline">Show all articles</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ NEWSLETTER ═══ -->
+  <section class="py-16 px-6 border-t" style="border-color:rgba(0,102,255,.08);background:rgba(255,255,255,.55)">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <p class="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-3">Stay Sharp</p>
+      <h2 class="text-2xl font-bold mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">Ad Ops Insights. No Filler.</h2>
+      <p class="text-slate-500 text-sm mb-7 leading-relaxed">Monthly research, platform updates, and practical frameworks for digital teams managing campaigns at scale. Unsubscribe any time.</p>
+      <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onsubmit="handleSubscribe(event)">
+        <input type="email" required placeholder="your@work.email" class="flex-1 px-4 py-3 rounded-xl border text-sm outline-none transition-all font-['Inter']" style="border-color:rgba(0,102,255,.2);background:rgba(255,255,255,.95);" onfocus="this.style.borderColor='#0066FF';this.style.boxShadow='0 0 0 3px rgba(0,102,255,.1)'" onblur="this.style.borderColor='rgba(0,102,255,.2)';this.style.boxShadow='none'" />
+        <button type="submit" class="btn-primary px-6 py-3 rounded-xl text-sm font-semibold text-white flex-shrink-0">Subscribe Free</button>
+      </form>
+      <p id="subscribe-success" class="hidden text-sm text-green-600 font-medium mt-3">You're in — first issue lands next Monday.</p>
+      <p class="text-xs text-slate-400 mt-3">No spam. No pitch decks. Just useful content.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t py-8 px-6" style="border-color:rgba(0,102,255,.1)">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-xs text-slate-500">&copy; 2026 Factor42, Inc. All rights reserved.</p>
+    <nav class="flex flex-wrap gap-4">
+      <a href="privacy-policy.html" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">Privacy Policy</a>
+      <a href="terms-of-service.html" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">Terms of Service</a>
+      <a href="sla.html" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">SLA</a>
+      <a href="security.html" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">Security</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal with fallback
+  const revealEls = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); } });
+  }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => obs.observe(el));
+  // Fallback: reveal everything after 400ms in case observer doesn't fire
+  setTimeout(() => revealEls.forEach(el => el.classList.add('revealed')), 400);
+
+  // Category filter
+  const pills = document.querySelectorAll('.tag-pill');
+  const articles = document.querySelectorAll('#articles-grid .article-card');
+  const noResults = document.getElementById('no-results');
+  let activeCat = 'all';
+
+  function setFilter(cat) {
+    activeCat = cat;
+    pills.forEach(p => p.classList.toggle('active', p.dataset.cat === cat));
+    let visible = 0;
+    articles.forEach(a => {
+      const show = cat === 'all' || a.dataset.cat === cat;
+      a.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    noResults.classList.toggle('hidden', visible > 0);
+  }
+
+  pills.forEach(p => p.addEventListener('click', () => setFilter(p.dataset.cat)));
+
+  // Newsletter
+  function handleSubscribe(e) {
+    e.preventDefault();
+    document.getElementById('newsletter-form').style.display = 'none';
+    document.getElementById('subscribe-success').classList.remove('hidden');
+  }
+</script>
+</body>
+</html>

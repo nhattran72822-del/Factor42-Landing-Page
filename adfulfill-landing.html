@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Factor42 — Expert Ad Operations & Digital Campaign Fulfillment</title>
+  <meta name="description" content="Factor42 is a full-service ad ops partner for media companies and agencies. We handle trafficking, reporting, and campaign optimization across Google, Meta, TikTok, DV360, and every major digital platform — so your team can focus on growth." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://factor42.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://factor42.com/" />
+  <meta property="og:title" content="Factor42 — Expert Ad Operations & Digital Campaign Fulfillment" />
+  <meta property="og:description" content="Full-service ad ops for media companies and agencies. Trafficking, reporting, and optimization across every major digital platform — with precision and zero margin for error." />
+  <meta property="og:site_name" content="Factor42" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Factor42 — Expert Ad Operations & Digital Campaign Fulfillment" />
+  <meta name="twitter:description" content="Full-service ad ops for media companies and agencies. Trafficking, reporting, and optimization across every major digital platform." />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Factor42",
+    "description": "Full-service digital ad fulfillment and ad operations for media companies and marketing agencies. Specializing in ad trafficking, campaign reporting, optimization, and multi-platform management.",
+    "url": "https://factor42.com",
+    "serviceType": ["Ad Operations", "Ad Trafficking", "Campaign Management", "Programmatic Advertising", "Digital Ad Fulfillment"],
+    "areaServed": "Worldwide",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Ad Operations Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ad Trafficking" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Unified Reporting" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Campaign Optimization" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Creative Management" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Multi-Platform Ad Fulfillment" } }
+      ]
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "100"
+    }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'Inter', 'ui-sans-serif', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      background-color: #F0F4FF;
+      color: #0A0F1E;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin: 0;
+    }
+
+    @keyframes fadeInUp  { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeIn    { from { opacity:0; } to { opacity:1; } }
+    @keyframes float     { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-10px); } }
+    @keyframes pulseGlow { 0%,100% { box-shadow:0 0 20px rgba(0,102,255,.3); } 50% { box-shadow:0 0 40px rgba(0,102,255,.6); } }
+
+    .anim-fade-in-up  { animation: fadeInUp  .6s ease-out forwards; }
+    .anim-fade-in     { animation: fadeIn    .6s ease-out forwards; }
+    .anim-float       { animation: float 4s ease-in-out infinite; }
+    .anim-pulse-glow  { animation: pulseGlow 2s ease-in-out infinite; }
+
+    .d100 { animation-delay:.1s; }
+    .d200 { animation-delay:.2s; }
+    .d300 { animation-delay:.3s; }
+    .d400 { animation-delay:.4s; }
+
+    .gradient-text {
+      background: linear-gradient(135deg,#0052CC 0%,#0066FF 50%,#00B4D8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gradient-text-blue {
+      background: linear-gradient(135deg,#0066FF 0%,#00B4D8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .glass-card {
+      background: rgba(255,255,255,.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(0,102,255,.12);
+      box-shadow: 0 2px 16px rgba(0,102,255,.06);
+      transition: border-color .2s, background .2s, box-shadow .2s;
+    }
+    .glass-card:hover {
+      border-color: rgba(0,102,255,.3);
+      background: rgba(255,255,255,.98);
+      box-shadow: 0 4px 24px rgba(0,102,255,.12);
+    }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(0,102,255,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,102,255,.07) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg,#0066FF 0%,#0052CC 100%);
+      transition: filter .2s, transform .15s;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary:hover  { filter: brightness(1.15); }
+    .btn-primary:active { transform: scale(.98); }
+    .btn-outline {
+      border: 1px solid rgba(0,102,255,.4);
+      transition: border-color .2s, background .2s, color .2s;
+    }
+    .btn-outline:hover {
+      border-color: #0066FF;
+      background: rgba(0,102,255,.06);
+      color: #0066FF !important;
+    }
+    .glow-blue { box-shadow: 0 0 30px rgba(0,102,255,.2); }
+
+    /* scroll-reveal helper — JS sets .revealed on intersection */
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity .65s ease-out, transform .65s ease-out; }
+    .reveal.revealed { opacity:1; transform:none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ SKIP LINK -->
+<a href="#main-content"
+   class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:text-sm focus:font-medium">
+  Skip to main content
+</a>
+
+<!-- ═══════════════════════════════════════════════════════ NAVBAR -->
+<header id="navbar" role="banner"
+  class="fixed top-0 left-0 right-0 z-50 py-5 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="adfulfill-landing.html" class="flex items-center gap-2.5 group" aria-label="Factor42 home">
+      <span class="text-2xl font-bold tracking-tight text-gray-900 group-hover:text-[#0066FF] transition-colors duration-200">
+        Factor<span class="gradient-text-blue">42</span>
+      </span>
+    </a>
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
+      <a href="#services"    class="text-sm font-medium text-slate-500 hover:text-gray-900 transition-colors">Services</a>
+      <a href="#how-it-works" class="text-sm font-medium text-slate-500 hover:text-gray-900 transition-colors">How It Works</a>
+      <a href="#results"     class="text-sm font-medium text-slate-500 hover:text-gray-900 transition-colors">Results</a>
+      <a href="about.html"   class="text-sm font-medium text-slate-500 hover:text-gray-900 transition-colors">About</a>
+      <a href="blog.html"    class="text-sm font-medium text-slate-500 hover:text-gray-900 transition-colors">Blog</a>
+      <a href="careers.html" class="text-sm font-medium text-slate-500 hover:text-gray-900 transition-colors">Careers</a>
+    </nav>
+    <!-- Desktop CTAs -->
+    <div class="hidden md:flex items-center gap-3">
+      <a href="consultation.html" class="btn-primary text-sm font-semibold text-white px-5 py-2.5 rounded-lg">Get Started</a>
+    </div>
+    <!-- Mobile toggle -->
+    <button id="menu-btn" class="md:hidden p-2 text-slate-400 hover:text-white rounded-lg transition-colors"
+            aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+      <svg id="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+      <svg id="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden border-t mt-3" style="border-color:rgba(0,102,255,.12);background:rgba(240,244,255,.98);backdrop-filter:blur(20px)">
+    <nav class="flex flex-col gap-1 px-6 py-4" aria-label="Mobile navigation">
+      <a href="#services"    class="text-sm font-medium text-slate-500 hover:text-gray-900 py-3 border-b transition-colors" style="border-color:rgba(0,0,0,.06)">Services</a>
+      <a href="#how-it-works" class="text-sm font-medium text-slate-500 hover:text-gray-900 py-3 border-b transition-colors" style="border-color:rgba(0,0,0,.06)">How It Works</a>
+      <a href="#results"     class="text-sm font-medium text-slate-500 hover:text-gray-900 py-3 border-b transition-colors" style="border-color:rgba(0,0,0,.06)">Results</a>
+      <a href="about.html"   class="text-sm font-medium text-slate-500 hover:text-gray-900 py-3 border-b transition-colors" style="border-color:rgba(0,0,0,.06)">About</a>
+      <a href="blog.html"    class="text-sm font-medium text-slate-500 hover:text-gray-900 py-3 border-b transition-colors" style="border-color:rgba(0,0,0,.06)">Blog</a>
+      <a href="careers.html" class="text-sm font-medium text-slate-500 hover:text-gray-900 py-3 transition-colors">Careers</a>
+      <div class="flex flex-col gap-3 pt-4">
+        <a href="consultation.html" class="btn-primary text-sm font-semibold text-white px-5 py-3 rounded-lg text-center">Get Started</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════ MAIN -->
+<main id="main-content">
+
+  <!-- ── HERO ──────────────────────────────────────────────────── -->
+  <section class="relative min-h-dvh flex flex-col items-center justify-center text-center overflow-hidden px-6 pt-24 pb-28"
+           aria-labelledby="hero-heading">
+    <!-- Background -->
+    <div class="absolute inset-0 grid-bg opacity-60" aria-hidden="true"></div>
+    <div class="absolute inset-0" style="background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(0,102,255,.1) 0%,transparent 70%)" aria-hidden="true"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-64" style="background:linear-gradient(to top,#F0F4FF,transparent)" aria-hidden="true"></div>
+    <!-- Orbs -->
+    <div class="absolute top-1/4 left-[10%] w-64 h-64 rounded-full anim-float" style="background:radial-gradient(circle,rgba(0,102,255,.12) 0%,transparent 70%);filter:blur(40px);animation-delay:0s" aria-hidden="true"></div>
+    <div class="absolute top-1/3 right-[8%] w-80 h-80 rounded-full anim-float" style="background:radial-gradient(circle,rgba(0,212,255,.1) 0%,transparent 70%);filter:blur(50px);animation-delay:-2s" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto">
+      <!-- Eyebrow -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 anim-fade-in-up"
+           style="background:rgba(0,102,255,.12);border:1px solid rgba(0,102,255,.3)">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" aria-hidden="true"></span>
+        <span class="text-xs font-semibold text-cyan-400 uppercase tracking-widest">Trusted by 100+ Media Partners</span>
+      </div>
+      <!-- Headline -->
+      <h1 id="hero-heading"
+          class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.08] tracking-tight mb-6 anim-fade-in-up d100"
+          style="font-family:'Plus Jakarta Sans',sans-serif">
+        Ad Ops That <span class="gradient-text">Delivers</span><br>At Scale
+      </h1>
+      <!-- Sub -->
+      <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-10 anim-fade-in-up d200">
+        Full-service digital ad fulfillment for media companies and marketing agencies.
+        From trafficking to reporting — we execute your campaigns with precision, speed, and zero margin for error.
+      </p>
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 anim-fade-in-up d300">
+        <a href="consultation.html"
+           class="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-white glow-blue w-full sm:w-auto justify-center">
+          Book a Free Consultation
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="#how-it-works"
+           class="btn-outline inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-medium text-slate-400 w-full sm:w-auto justify-center">
+          See How It Works
+        </a>
+      </div>
+      <!-- Stats strip -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-px anim-fade-in-up d400"
+           style="background:rgba(0,102,255,.08);border-radius:16px;overflow:hidden;border:1px solid rgba(0,102,255,.12)">
+        <div class="flex flex-col items-center justify-center py-6 px-4 text-center" style="background:rgba(255,255,255,.9)">
+          <span class="text-2xl sm:text-3xl font-bold text-gray-900 mb-1" style="font-family:'Plus Jakarta Sans',sans-serif">2.4B+</span>
+          <span class="text-xs text-slate-500 font-medium leading-tight">Impressions Served Monthly</span>
+        </div>
+        <div class="flex flex-col items-center justify-center py-6 px-4 text-center" style="background:rgba(255,255,255,.9)">
+          <span class="text-2xl sm:text-3xl font-bold text-gray-900 mb-1" style="font-family:'Plus Jakarta Sans',sans-serif">98.6%</span>
+          <span class="text-xs text-slate-500 font-medium leading-tight">Campaign Delivery Rate</span>
+        </div>
+        <div class="flex flex-col items-center justify-center py-6 px-4 text-center" style="background:rgba(255,255,255,.9)">
+          <span class="text-2xl sm:text-3xl font-bold text-gray-900 mb-1" style="font-family:'Plus Jakarta Sans',sans-serif">100+</span>
+          <span class="text-xs text-slate-500 font-medium leading-tight">Agency &amp; Media Partners</span>
+        </div>
+        <div class="flex flex-col items-center justify-center py-6 px-4 text-center" style="background:rgba(255,255,255,.9)">
+          <span class="text-2xl sm:text-3xl font-bold text-gray-900 mb-1" style="font-family:'Plus Jakarta Sans',sans-serif">12min</span>
+          <span class="text-xs text-slate-500 font-medium leading-tight">Avg. Trafficking Turnaround</span>
+        </div>
+      </div>
+
+      <!-- Platform grid (removed — see standalone section below hero) -->
+      <div class="hidden">
+        <div class="grid">
+          <div class="glass-card rounded-2xl p-4 flex flex-col items-center gap-2 text-center"><svg width="32" height="32" viewBox="0 0 24 24" fill="#4285F4"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg><span class="text-xs font-semibold text-slate-600 leading-tight">Google Ads</span></div>
+          <div class="glass-card rounded-2xl p-4 flex flex-col items-center gap-2 text-center"><svg width="32" height="32" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span class="text-xs font-semibold text-slate-600 leading-tight">YouTube</span></div>
+          <div class="glass-card rounded-2xl p-4 flex flex-col items-center gap-2 text-center"><svg width="32" height="32" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span class="text-xs font-semibold text-slate-600 leading-tight">Meta</span></div>
+          <div class="glass-card rounded-2xl p-4 flex flex-col items-center gap-2 text-center"><svg width="32" height="32" viewBox="0 0 24 24" fill="#E4405F"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12c0 3.259.014 3.668.072 4.948.059 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24c3.259 0 3.668-.014 4.948-.072 1.277-.059 2.148-.261 2.913-.558.788-.306 1.459-.717 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.689.072-4.948 0-3.259-.014-3.667-.072-4.947-.059-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg><span class="text-xs font-semibold text-slate-600 leading-tight">Instagram</span></div>
+          <div class="glass-card rounded-2xl p-4 flex flex-col items-center gap-2 text-center"><svg width="32" height="32" viewBox="0 0 24 24" fill="#010101"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span class="text-xs font-semibold text-slate-600 leading-tight">TikTok</span></div>
+          <div class="glass-card rounded-2xl p-4 flex flex-col items-center gap-2 text-center"><svg width="32" height="32" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span class="text-xs font-semibold text-slate-600 leading-tight">LinkedIn</span></div>
+          <div class="glass-card rounded-2xl p-4 flex flex-col items-center gap-2 text-center"><svg width="32" height="32" viewBox="0 0 24 24" fill="#FF4500"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg><span class="text-xs font-semibold text-slate-600 leading-tight">Reddit</span></div>
+          <div class="glass-card rounded-2xl p-4 flex flex-col items-center gap-2 text-center"><svg width="32" height="32" viewBox="0 0 24 24" fill="#000000"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg><span class="text-xs font-semibold text-slate-600 leading-tight">X (Twitter)</span></div>
+          <div class="glass-card rounded-2xl p-4 flex flex-col items-center gap-2 text-center"><svg width="32" height="32" viewBox="0 0 24 24" fill="#E60023"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg><span class="text-xs font-semibold text-slate-600 leading-tight">Pinterest</span></div>
+          <div class="glass-card rounded-2xl p-4 flex flex-col items-center gap-2 text-center"><svg width="32" height="32" viewBox="0 0 24 24" fill="#FFFC00" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,.15))"><path d="M12.206.793c.99 0 4.347.276 5.93 3.821.5 1.129.43 3.043.408 4.527l-.004.257c0 .071.093.14.26.194.1.033.23.066.4.104l.213.048c.8.178 2.085.46 2.085 1.622 0 .98-1.037 1.292-1.876 1.42l-.06.009-.062.01-.046.008c-.432.07-.715.114-.715.59 0 .21.04.38.08.551l.019.09c.197.86.646 2.833-1.216 3.807l-.018.01-.017.01c-.13.07-.27.103-.41.103-.34 0-.65-.19-.82-.51l-.006-.012c-.29-.56-.65-1.27-1.68-1.27-.28 0-.56.05-.82.15l-.2.07-.199.07c-.28.1-.56.15-.85.15-1.76 0-2.93-1.32-3.42-2.07-.22-.33-.45-.54-.71-.55-.069 0-.14.01-.21.04l-.2.07c-.28.1-.57.15-.86.15-.36 0-.71-.07-1.04-.2l-.2-.08-.01-.005c-1.76-.96-1.316-2.92-1.12-3.78l.016-.072c.04-.17.08-.34.08-.55 0-.476-.283-.52-.715-.59l-.046-.008-.062-.01-.06-.009c-.84-.128-1.876-.44-1.876-1.42 0-1.162 1.285-1.444 2.085-1.622l.213-.048c.17-.038.3-.071.4-.104.166-.054.26-.123.26-.194l-.004-.257c-.022-1.484-.092-3.398.408-4.527C7.847 1.07 11.203.793 12.206.793z"/></svg><span class="text-xs font-semibold text-slate-600 leading-tight">Snapchat</span></div>
+          <div class="glass-card rounded-2xl p-4 flex flex-col items-center gap-2 text-center"><div class="w-8 h-8 flex items-center justify-center rounded-lg" style="background:linear-gradient(135deg,#4285F4,#34A853)"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><rect x="2" y="3" width="20" height="14" rx="2"/><polygon points="10,8 10,14 16,11" fill="white"/></svg></div><span class="text-xs font-semibold text-slate-600 leading-tight">DV360</span></div>
+          <div class="glass-card rounded-2xl p-4 flex flex-col items-center gap-2 text-center"><div class="w-8 h-8 flex items-center justify-center rounded-lg" style="background:#00CC99"><span class="text-white font-black text-xs" style="font-family:'Plus Jakarta Sans',sans-serif">TTD</span></div><span class="text-xs font-semibold text-slate-600 leading-tight">The Trade Desk</span></div>
+        </div>
+      </div>
+
+    </div>
+    <!-- Scroll hint -->
+    <a href="#services" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-600 hover:text-cyan-400 transition-colors anim-float" aria-label="Scroll to services" style="animation-delay:-1s;margin-top:2rem">
+      <span class="text-xs font-medium tracking-widest uppercase">Explore</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+    </a>
+  </section>
+
+  <!-- ── CLIENT LOGOS ──────────────────────────────────────────── -->
+  <section class="py-16 border-y" style="border-color:rgba(0,102,255,.1)" aria-label="Our clients">
+    <div class="max-w-7xl mx-auto px-6">
+      <p class="text-center text-xs font-semibold text-slate-600 uppercase tracking-widest mb-10">
+        Trusted by leading media companies &amp; agencies
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+        <div class="text-slate-700 font-bold text-lg tracking-tight hover:text-slate-500 transition-colors select-none">Meridian Media</div>
+        <div class="text-slate-700 font-bold text-lg tracking-tight hover:text-slate-500 transition-colors select-none">Apex Digital</div>
+        <div class="text-slate-700 font-bold text-lg tracking-tight hover:text-slate-500 transition-colors select-none">PulseGroup</div>
+        <div class="text-slate-700 font-bold text-lg tracking-tight hover:text-slate-500 transition-colors select-none">NovaBrand</div>
+        <div class="text-slate-700 font-bold text-lg tracking-tight hover:text-slate-500 transition-colors select-none">StarReach</div>
+        <div class="text-slate-700 font-bold text-lg tracking-tight hover:text-slate-500 transition-colors select-none">OmniAds</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PLATFORMS ───────────────────────────────────────────── -->
+  <section id="platforms" class="py-20 px-6" aria-labelledby="platforms-heading">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="inline-block text-xs font-semibold text-blue-500 uppercase tracking-widest mb-4">Platform Coverage</span>
+        <h2 id="platforms-heading" class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 tracking-tight" style="font-family:'Plus Jakarta Sans',sans-serif">
+          Fulfillment Across Every <span class="gradient-text-blue">Digital Platform</span>
+        </h2>
+        <p class="text-slate-600 text-lg max-w-2xl mx-auto">From paid search and social to programmatic, CTV, and beyond — one team, every channel.</p>
+      </div>
+      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 reveal" style="transition-delay:.05s">
+
+        <!-- Google Ads -->
+        <div class="glass-card rounded-2xl p-5 flex flex-col items-center gap-3 text-center">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="Google Ads">
+            <!-- Yellow left leg of the A -->
+            <line x1="6" y1="27" x2="17" y2="5" stroke="#FBBC04" stroke-width="9" stroke-linecap="round"/>
+            <!-- Blue right leg of the A (renders on top at apex) -->
+            <line x1="17" y1="5" x2="28" y2="27" stroke="#4285F4" stroke-width="9" stroke-linecap="round"/>
+            <!-- Green circle at base of yellow leg -->
+            <circle cx="6" cy="27" r="6" fill="#34A853"/>
+          </svg>
+          <span class="text-xs font-semibold text-slate-600 leading-tight">Google Ads</span>
+        </div>
+
+        <!-- YouTube -->
+        <div class="glass-card rounded-2xl p-5 flex flex-col items-center gap-3 text-center">
+          <svg width="32" height="32" viewBox="0 0 24 24" aria-label="YouTube" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span class="text-xs font-semibold text-slate-600 leading-tight">YouTube</span>
+        </div>
+
+        <!-- Meta / Facebook -->
+        <div class="glass-card rounded-2xl p-5 flex flex-col items-center gap-3 text-center">
+          <svg width="32" height="32" viewBox="0 0 24 24" aria-label="Meta" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span class="text-xs font-semibold text-slate-600 leading-tight">Meta</span>
+        </div>
+
+        <!-- Instagram -->
+        <div class="glass-card rounded-2xl p-5 flex flex-col items-center gap-3 text-center">
+          <svg width="32" height="32" viewBox="0 0 24 24" aria-label="Instagram" fill="#E4405F"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12c0 3.259.014 3.668.072 4.948.059 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24c3.259 0 3.668-.014 4.948-.072 1.277-.059 2.148-.261 2.913-.558.788-.306 1.459-.717 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.689.072-4.948 0-3.259-.014-3.667-.072-4.947-.059-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+          <span class="text-xs font-semibold text-slate-600 leading-tight">Instagram</span>
+        </div>
+
+        <!-- TikTok -->
+        <div class="glass-card rounded-2xl p-5 flex flex-col items-center gap-3 text-center">
+          <svg width="32" height="32" viewBox="0 0 24 24" aria-label="TikTok" fill="#010101"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          <span class="text-xs font-semibold text-slate-600 leading-tight">TikTok</span>
+        </div>
+
+        <!-- LinkedIn -->
+        <div class="glass-card rounded-2xl p-5 flex flex-col items-center gap-3 text-center">
+          <svg width="32" height="32" viewBox="0 0 24 24" aria-label="LinkedIn" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <span class="text-xs font-semibold text-slate-600 leading-tight">LinkedIn</span>
+        </div>
+
+        <!-- Reddit -->
+        <div class="glass-card rounded-2xl p-5 flex flex-col items-center gap-3 text-center">
+          <svg width="32" height="32" viewBox="0 0 24 24" aria-label="Reddit" fill="#FF4500"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+          <span class="text-xs font-semibold text-slate-600 leading-tight">Reddit</span>
+        </div>
+
+        <!-- X / Twitter -->
+        <div class="glass-card rounded-2xl p-5 flex flex-col items-center gap-3 text-center">
+          <svg width="32" height="32" viewBox="0 0 24 24" aria-label="X (Twitter)" fill="#000000"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+          <span class="text-xs font-semibold text-slate-600 leading-tight">X (Twitter)</span>
+        </div>
+
+        <!-- Pinterest -->
+        <div class="glass-card rounded-2xl p-5 flex flex-col items-center gap-3 text-center">
+          <svg width="32" height="32" viewBox="0 0 24 24" aria-label="Pinterest" fill="#E60023"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+          <span class="text-xs font-semibold text-slate-600 leading-tight">Pinterest</span>
+        </div>
+
+        <!-- Snapchat -->
+        <div class="glass-card rounded-2xl p-5 flex flex-col items-center gap-3 text-center">
+          <svg width="32" height="32" viewBox="0 0 24 24" aria-label="Snapchat" fill="#FFFC00" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,.15))"><path d="M12.206.793c.99 0 4.347.276 5.93 3.821.5 1.129.43 3.043.408 4.527l-.004.257c0 .071.093.14.26.194.1.033.23.066.4.104l.213.048c.8.178 2.085.46 2.085 1.622 0 .98-1.037 1.292-1.876 1.42l-.06.009-.062.01-.046.008c-.432.07-.715.114-.715.59 0 .21.04.38.08.551l.019.09c.197.86.646 2.833-1.216 3.807l-.018.01-.017.01c-.13.07-.27.103-.41.103-.34 0-.65-.19-.82-.51l-.006-.012c-.29-.56-.65-1.27-1.68-1.27-.28 0-.56.05-.82.15l-.2.07-.199.07c-.28.1-.56.15-.85.15-1.76 0-2.93-1.32-3.42-2.07-.22-.33-.45-.54-.71-.55-.069 0-.14.01-.21.04l-.2.07c-.28.1-.57.15-.86.15-.36 0-.71-.07-1.04-.2l-.2-.08-.01-.005c-1.76-.96-1.316-2.92-1.12-3.78l.016-.072c.04-.17.08-.34.08-.55 0-.476-.283-.52-.715-.59l-.046-.008-.062-.01-.06-.009c-.84-.128-1.876-.44-1.876-1.42 0-1.162 1.285-1.444 2.085-1.622l.213-.048c.17-.038.3-.071.4-.104.166-.054.26-.123.26-.194l-.004-.257c-.022-1.484-.092-3.398.408-4.527C7.847 1.07 11.203.793 12.206.793z"/></svg>
+          <span class="text-xs font-semibold text-slate-600 leading-tight">Snapchat</span>
+        </div>
+
+        <!-- DV360 -->
+        <div class="glass-card rounded-2xl p-5 flex flex-col items-center gap-3 text-center">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="DV360">
+            <!-- Background rounded square in GMP blue -->
+            <rect width="32" height="32" rx="7" fill="#1A73E8"/>
+            <!-- Monitor screen -->
+            <rect x="4" y="7" width="24" height="15" rx="2" fill="white" opacity="0.2"/>
+            <rect x="4" y="7" width="24" height="15" rx="2" stroke="white" stroke-width="1.5"/>
+            <!-- Play triangle -->
+            <path d="M13 12.5l7 3.5-7 3.5V12.5z" fill="white"/>
+            <!-- Stand stem -->
+            <rect x="14" y="22" width="4" height="2" rx="1" fill="white" opacity="0.7"/>
+            <!-- Stand base -->
+            <rect x="11" y="24" width="10" height="1.5" rx="0.75" fill="white" opacity="0.5"/>
+          </svg>
+          <span class="text-xs font-semibold text-slate-600 leading-tight">DV360</span>
+        </div>
+
+        <!-- The Trade Desk -->
+        <div class="glass-card rounded-2xl p-5 flex flex-col items-center gap-3 text-center">
+          <div class="w-8 h-8 flex items-center justify-center rounded-lg" style="background:#00CC99">
+            <span class="text-white font-black text-xs" style="font-family:'Plus Jakarta Sans',sans-serif">TTD</span>
+          </div>
+          <span class="text-xs font-semibold text-slate-600 leading-tight">The Trade Desk</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ──────────────────────────────────────────────── -->
+  <section id="services" class="py-24 px-6" aria-labelledby="services-heading">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <span class="inline-block text-xs font-semibold text-blue-500 uppercase tracking-widest mb-4">What We Do</span>
+        <h2 id="services-heading" class="text-4xl sm:text-5xl font-bold text-gray-900 mb-5 tracking-tight" style="font-family:'Plus Jakarta Sans',sans-serif">
+          Every Layer of <span class="gradient-text-blue">Ad Fulfillment</span>,<br class="hidden sm:block"> Handled
+        </h2>
+        <p class="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+          We embed as your white-label ad ops team — executing campaigns across every channel while you focus on clients and growth.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- Card: Ad Trafficking -->
+        <article class="glass-card rounded-2xl p-7 reveal" style="transition-delay:.05s">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,102,255,.12);color:#0066FF">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Ad Trafficking</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Seamless campaign setup and trafficking across all major DSPs, SSPs, and ad servers. We handle the complexity so your team can focus on strategy.</p>
+          <div class="mt-6 h-px rounded-full opacity-0 group-hover:opacity-100 transition-opacity" style="background:linear-gradient(90deg,#0066FF,transparent)"></div>
+        </article>
+
+        <!-- Card: Unified Reporting -->
+        <article class="glass-card rounded-2xl p-7 reveal" style="transition-delay:.1s">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,212,255,.1);color:#00D4FF">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Unified Reporting</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Consolidated cross-channel dashboards with real-time data pulls. Delivery, performance, and pacing — all in one view.</p>
+        </article>
+
+        <!-- Card: Optimization -->
+        <article class="glass-card rounded-2xl p-7 reveal" style="transition-delay:.15s">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,102,255,.12);color:#0066FF">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Campaign Optimization</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Data-driven bid adjustments, audience refinement, and creative rotation to hit your KPIs every time.</p>
+        </article>
+
+        <!-- Card: Creative Management -->
+        <article class="glass-card rounded-2xl p-7 reveal" style="transition-delay:.2s">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,212,255,.1);color:#00D4FF">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Creative Management</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Organize, QA, and version-control all creative assets. Ensure specs compliance before any unit goes live.</p>
+        </article>
+
+        <!-- Card: Multi-Platform -->
+        <article class="glass-card rounded-2xl p-7 reveal" style="transition-delay:.25s">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,102,255,.12);color:#0066FF">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><circle cx="17" cy="8" r="2"/><path d="M17 6v-.5"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Multi-Platform Support</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Display, video, CTV, social, native, and DOOH. One team, all channels, zero platform silos.</p>
+        </article>
+
+        <!-- Card: Automation -->
+        <article class="glass-card rounded-2xl p-7 reveal" style="transition-delay:.3s">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,212,255,.1);color:#00D4FF">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6V2H8"/><path d="m8 2-4 4"/><path d="M12 18v4h4"/><path d="m16 22 4-4"/><path d="M6.379 6.379A9 9 0 0 0 12 21a9 9 0 0 0 6-2.33"/><path d="M17.621 17.621A9 9 0 0 0 12 3a9 9 0 0 0-6 2.33"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Workflow Automation</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Automated pacing alerts, billing reconciliation, and end-of-campaign wrap reports. Reduce manual overhead by 70%.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ──────────────────────────────────────────── -->
+  <section id="how-it-works" class="py-24 px-6 relative overflow-hidden" aria-labelledby="hiw-heading">
+    <div class="absolute inset-0" style="background:radial-gradient(ellipse 80% 50% at 50% 50%,rgba(0,102,255,.04) 0%,transparent 70%)" aria-hidden="true"></div>
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="text-center mb-16 reveal">
+        <span class="inline-block text-xs font-semibold text-blue-500 uppercase tracking-widest mb-4">The Process</span>
+        <h2 id="hiw-heading" class="text-4xl sm:text-5xl font-bold text-gray-900 mb-5 tracking-tight" style="font-family:'Plus Jakarta Sans',sans-serif">
+          Live in <span class="gradient-text-blue">3 Steps</span>
+        </h2>
+        <p class="text-slate-600 text-lg max-w-xl mx-auto">
+          From onboarding to your first campaign going live — our process is built for speed without sacrificing quality.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <!-- connector line -->
+        <div class="hidden md:block absolute h-px" style="top:2.5rem;left:calc(33.33% + 2rem);right:calc(33.33% + 2rem);background:linear-gradient(90deg,#0066FF,#00D4FF,#0066FF);z-index:0" aria-hidden="true"></div>
+
+        <div class="flex flex-col items-center text-center reveal" style="transition-delay:.05s">
+          <div class="w-20 h-20 rounded-2xl flex items-center justify-center mb-6"
+               style="background:rgba(240,244,255,1);border:1px solid rgba(0,102,255,.25);box-shadow:0 0 30px rgba(0,102,255,.15);position:relative;z-index:1">
+            <span class="text-2xl font-bold gradient-text-blue" style="font-family:'Plus Jakarta Sans',sans-serif">01</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Onboard &amp; Integrate</h3>
+          <p class="text-slate-600 text-sm leading-relaxed max-w-xs">Connect your ad server, DSP, and data sources in minutes. Our team configures your workspace and validates all integrations end-to-end.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center reveal" style="transition-delay:.15s">
+          <div class="w-20 h-20 rounded-2xl flex items-center justify-center mb-6"
+               style="background:rgba(240,244,255,1);border:1px solid rgba(0,102,255,.25);box-shadow:0 0 30px rgba(0,102,255,.15);position:relative;z-index:1">
+            <span class="text-2xl font-bold gradient-text-blue" style="font-family:'Plus Jakarta Sans',sans-serif">02</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">We Traffic &amp; Manage</h3>
+          <p class="text-slate-600 text-sm leading-relaxed max-w-xs">Submit your campaign briefs and creative assets. Our certified ad ops specialists handle trafficking, QA, and launch across all platforms.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center reveal" style="transition-delay:.25s">
+          <div class="w-20 h-20 rounded-2xl flex items-center justify-center mb-6"
+               style="background:rgba(240,244,255,1);border:1px solid rgba(0,102,255,.25);box-shadow:0 0 30px rgba(0,102,255,.15);position:relative;z-index:1">
+            <span class="text-2xl font-bold gradient-text-blue" style="font-family:'Plus Jakarta Sans',sans-serif">03</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Optimize &amp; Report</h3>
+          <p class="text-slate-600 text-sm leading-relaxed max-w-xs">Real-time dashboards, automated alerts, and wrap reports delivered to your inbox. We optimize continuously to protect your delivery and performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ──────────────────────────────────────────── -->
+  <section id="results" class="py-24 px-6" aria-labelledby="testimonials-heading">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <span class="inline-block text-xs font-semibold text-blue-500 uppercase tracking-widest mb-4">Client Stories</span>
+        <h2 id="testimonials-heading" class="text-4xl sm:text-5xl font-bold text-gray-900 mb-5 tracking-tight" style="font-family:'Plus Jakarta Sans',sans-serif">
+          Results That <span class="gradient-text-blue">Speak</span>
+        </h2>
+        <p class="text-slate-600 text-lg max-w-xl mx-auto">From regional publishers to national media networks — here's what our partners say.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <blockquote class="glass-card rounded-2xl p-7 flex flex-col gap-6 reveal" style="transition-delay:.05s">
+          <div class="flex gap-1" aria-label="5 out of 5 stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="text-slate-600 text-sm leading-relaxed flex-1">"Factor42 cut our campaign launch time from days to hours. The trafficking accuracy alone paid for itself in the first month."</p>
+          <footer class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style="background:linear-gradient(135deg,#0066FF,#0066FF99)" aria-hidden="true">SC</div>
+            <div>
+              <cite class="not-italic text-sm font-semibold text-gray-900 block">Sarah Chen</cite>
+              <span class="text-xs text-slate-500">VP of Digital Operations, Meridian Media Group</span>
+            </div>
+          </footer>
+        </blockquote>
+
+        <blockquote class="glass-card rounded-2xl p-7 flex flex-col gap-6 reveal" style="transition-delay:.12s">
+          <div class="flex gap-1" aria-label="5 out of 5 stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="text-slate-600 text-sm leading-relaxed flex-1">"Finally a fulfillment partner that speaks our language. The unified reporting dashboard replaced four separate tools we were maintaining."</p>
+          <footer class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style="background:linear-gradient(135deg,#00D4FF,#00D4FF99)" aria-hidden="true">MW</div>
+            <div>
+              <cite class="not-italic text-sm font-semibold text-gray-900 block">Marcus Williams</cite>
+              <span class="text-xs text-slate-500">Head of Programmatic, Apex Digital Agency</span>
+            </div>
+          </footer>
+        </blockquote>
+
+        <blockquote class="glass-card rounded-2xl p-7 flex flex-col gap-6 reveal" style="transition-delay:.2s">
+          <div class="flex gap-1" aria-label="5 out of 5 stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="text-slate-600 text-sm leading-relaxed flex-1">"Scaling from 50 to 200 concurrent campaigns without adding headcount — that's what Factor42 made possible for us."</p>
+          <footer class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style="background:linear-gradient(135deg,#6366F1,#6366F199)" aria-hidden="true">PN</div>
+            <div>
+              <cite class="not-italic text-sm font-semibold text-gray-900 block">Priya Nair</cite>
+              <span class="text-xs text-slate-500">Director of Ad Operations, NextWave Broadcasting</span>
+            </div>
+          </footer>
+        </blockquote>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── CTA BANNER ────────────────────────────────────────────── -->
+  <section class="py-24 px-6" aria-labelledby="cta-heading">
+    <div class="max-w-5xl mx-auto">
+      <div class="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden reveal"
+           style="background:linear-gradient(135deg,rgba(0,82,204,.07) 0%,rgba(0,180,216,.05) 50%,rgba(0,82,204,.07) 100%);border:1px solid rgba(0,102,255,.2);backdrop-filter:blur(20px);box-shadow:0 4px 32px rgba(0,102,255,.08)">
+        <div class="absolute inset-0 rounded-3xl" style="background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(0,102,255,.06) 0%,transparent 70%)" aria-hidden="true"></div>
+        <div class="relative z-10">
+          <h2 id="cta-heading" class="text-4xl sm:text-5xl font-bold text-gray-900 mb-5 tracking-tight" style="font-family:'Plus Jakarta Sans',sans-serif">
+            Ready to Scale Your <span class="gradient-text">Ad Operations?</span>
+          </h2>
+          <p class="text-slate-600 text-lg max-w-2xl mx-auto mb-10">
+            Join 100+ media companies and agencies who trust Factor42 to execute their campaigns with speed and precision.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="consultation.html"
+               class="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-white glow-blue w-full sm:w-auto justify-center">
+              Book a Free Consultation
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a href="consultation.html"
+               class="btn-outline inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-medium text-slate-400 w-full sm:w-auto justify-center">
+              Schedule a Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════════ FOOTER -->
+<footer class="border-t py-16 px-6" style="border-color:rgba(0,102,255,.1)" role="contentinfo">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12">
+      <!-- Brand -->
+      <div class="md:col-span-2">
+        <a href="#" class="flex items-center gap-2.5 mb-4" aria-label="Factor42 home">
+          <span class="text-2xl font-bold tracking-tight text-gray-900">Factor<span class="gradient-text-blue">42</span></span>
+        </a>
+        <p class="text-slate-500 text-sm leading-relaxed max-w-xs">Full-service digital ad fulfillment for media companies and agencies. We execute your campaigns so you can focus on growth.</p>
+      </div>
+      <!-- Services -->
+      <nav aria-label="Services links">
+        <h3 class="text-xs font-semibold text-gray-900 uppercase tracking-widest mb-5">Services</h3>
+        <ul class="flex flex-col gap-3">
+          <li><a href="#" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Ad Trafficking</a></li>
+          <li><a href="#" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Campaign Reporting</a></li>
+          <li><a href="#" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Optimization</a></li>
+          <li><a href="#" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Creative Management</a></li>
+          <li><a href="#" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Multi-Platform</a></li>
+        </ul>
+      </nav>
+      <!-- Company -->
+      <nav aria-label="Company links">
+        <h3 class="text-xs font-semibold text-gray-900 uppercase tracking-widest mb-5">Company</h3>
+        <ul class="flex flex-col gap-3">
+          <li><a href="about.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">About Us</a></li>
+          <li><a href="careers.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Careers</a></li>
+          <li><a href="blog.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Blog</a></li>
+          <li><a href="#" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Press</a></li>
+          <li><a href="#" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- Legal -->
+      <nav aria-label="Legal links">
+        <h3 class="text-xs font-semibold text-gray-900 uppercase tracking-widest mb-5">Legal</h3>
+        <ul class="flex flex-col gap-3">
+          <li><a href="privacy-policy.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Terms of Service</a></li>
+          <li><a href="sla.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">SLA</a></li>
+          <li><a href="security.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Security</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t" style="border-color:rgba(0,102,255,.08)">
+      <p class="text-xs text-slate-500">&copy; <span id="year"></span> Factor42, Inc. All rights reserved.</p>
+      <p class="text-xs text-slate-500">Built for media companies &amp; agencies worldwide</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════ SCRIPTS -->
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      navbar.style.background = 'rgba(240,244,255,0.95)';
+      navbar.style.backdropFilter = 'blur(20px)';
+      navbar.style.borderBottom = '1px solid rgba(0,102,255,0.12)';
+      navbar.style.boxShadow = '0 1px 12px rgba(0,102,255,0.06)';
+      navbar.style.paddingTop = '12px';
+      navbar.style.paddingBottom = '12px';
+    } else {
+      navbar.style.background = 'transparent';
+      navbar.style.backdropFilter = 'none';
+      navbar.style.borderBottom = 'none';
+      navbar.style.boxShadow = 'none';
+      navbar.style.paddingTop = '20px';
+      navbar.style.paddingBottom = '20px';
+    }
+  }, { passive: true });
+
+  // Mobile menu
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconMenu = document.getElementById('icon-menu');
+  const iconClose = document.getElementById('icon-close');
+  let menuOpen = false;
+  menuBtn.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileMenu.classList.toggle('hidden', !menuOpen);
+    iconMenu.classList.toggle('hidden', menuOpen);
+    iconClose.classList.toggle('hidden', !menuOpen);
+    menuBtn.setAttribute('aria-expanded', menuOpen);
+    menuBtn.setAttribute('aria-label', menuOpen ? 'Close menu' : 'Open menu');
+  });
+  // Close mobile menu on link click
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menuOpen = false;
+    mobileMenu.classList.add('hidden');
+    iconMenu.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+    menuBtn.setAttribute('aria-expanded', false);
+  }));
+
+  // Scroll-reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

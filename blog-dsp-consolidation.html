@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The DSP Consolidation That Didn't Happen: Why Agencies Are Still Managing Too Many Demand-Side Platforms | Factor42</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #F0F4FF; color: #0A0F1E; -webkit-font-smoothing: antialiased; margin: 0; }
+    .gradient-text-blue { background: linear-gradient(135deg,#0066FF,#00B4D8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .btn-primary { background: linear-gradient(135deg,#0066FF,#0052CC); transition: filter .2s; }
+    .btn-primary:hover { filter: brightness(1.12); }
+    .prose h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.35rem; font-weight: 700; color: #0A0F1E; margin: 2.5rem 0 0.75rem; }
+    .prose h3 { font-size: 1.05rem; font-weight: 600; color: #1e293b; margin: 1.75rem 0 0.5rem; }
+    .prose p { font-size: 0.95rem; color: #475569; line-height: 1.85; margin-bottom: 1.25rem; }
+    .prose ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    .prose li { font-size: 0.95rem; color: #475569; line-height: 1.8; margin-bottom: 0.4rem; }
+    .prose strong { color: #1e293b; font-weight: 600; }
+    .pull-quote { border-left: 3px solid #1e40af; padding: 1rem 1.25rem; background: rgba(30,64,175,.05); border-radius: 0 10px 10px 0; margin: 2rem 0; }
+    .pull-quote p { color: #334155; font-style: italic; font-size: 1rem; margin: 0; }
+    .stat-box { background: rgba(255,255,255,.9); border: 1px solid rgba(30,64,175,.15); border-radius: 16px; padding: 1.5rem; text-align: center; }
+    .gradient-text-navy { background: linear-gradient(135deg,#0f172a,#1e40af); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 py-4 border-b" style="background:rgba(240,244,255,.97);border-color:rgba(0,102,255,.1);backdrop-filter:blur(16px)">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <a href="adfulfill-landing.html" class="text-2xl font-bold tracking-tight text-gray-900" style="font-family:'Plus Jakarta Sans',sans-serif">Factor<span class="gradient-text-blue">42</span></a>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="adfulfill-landing.html#services" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Services</a>
+        <a href="about.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">About</a>
+        <a href="blog.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Blog</a>
+        <a href="careers.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Careers</a>
+        <a href="consultation.html" class="text-sm font-semibold text-white px-4 py-2 rounded-lg" style="background:#0066FF">Get Started</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Band -->
+  <div style="background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);" class="py-16 px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="flex items-center gap-3 mb-5">
+        <span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full">Programmatic</span>
+      </div>
+      <h1 style="font-family:'Plus Jakarta Sans',sans-serif;" class="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-5">
+        The DSP Consolidation That Didn't Happen: Why Agencies Are Still Managing Too Many Demand-Side Platforms
+      </h1>
+      <div class="flex flex-wrap items-center gap-4 text-white/70 text-sm">
+        <span>December 5, 2025</span>
+        <span>·</span>
+        <span>9 min read</span>
+        <span>·</span>
+        <span>James Okonkwo</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stat Strip -->
+  <div class="bg-white border-b border-slate-100">
+    <div class="max-w-3xl mx-auto px-6 py-8 grid grid-cols-3 gap-4">
+      <div class="stat-box">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;" class="text-4xl font-extrabold gradient-text-navy mb-1">7.3</div>
+        <div class="text-xs text-slate-500 font-medium">avg DSPs per agency</div>
+      </div>
+      <div class="stat-box">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;" class="text-4xl font-extrabold gradient-text-navy mb-1">CTV +<br/>Retail</div>
+        <div class="text-xs text-slate-500 font-medium">added the most new platforms</div>
+      </div>
+      <div class="stat-box">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;" class="text-4xl font-extrabold gradient-text-navy mb-1">3 yrs</div>
+        <div class="text-xs text-slate-500 font-medium">since consolidation was predicted</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Article Body -->
+  <main class="max-w-3xl mx-auto px-6 py-12 prose">
+
+    <p>In 2022 and 2023, the narrative in programmatic circles was confident: DSP consolidation was coming. The argument was reasonable — buyers would rationalize their platform portfolios, routing the majority of programmatic spend through one or two primary DSPs that offered superior data, reach, and technology. The fragmentation of the early programmatic era would give way to a more manageable, efficient structure. Industry analysts predicted that the number of DSPs an average agency actively managed would decline meaningfully by 2025.</p>
+
+    <p>It didn't happen. In 2026, the average agency is managing <strong>7.3 active DSPs</strong>, up from approximately 4.8 in 2022. The consolidation prediction wasn't just wrong — the trend moved in the opposite direction. Understanding why matters for anyone trying to build sustainable operations in the current programmatic environment.</p>
+
+    <h2>Why the Consolidation Prediction Failed</h2>
+
+    <p>The prediction assumed that buyers would choose between existing DSPs — that the competitive dynamics among The Trade Desk, DV360, Amazon DSP, and their competitors would produce winners and losers, and that agencies would concentrate spend with the winners. What it failed to anticipate was that new inventory channels would emerge with their own distinct buying infrastructure.</p>
+
+    <p>The introduction of CTV as a major ad channel brought with it a cluster of purpose-built or CTV-specialized DSPs. While The Trade Desk and DV360 both buy CTV inventory, agencies found that certain CTV-native DSPs offered superior access to specific streaming publishers, better frequency management tools for the medium, or unique programmatic guarantee capabilities. Rather than replacing an existing DSP, CTV buying often added a new one.</p>
+
+    <p>Retail media compounded the problem more severely. Amazon DSP was already in most agency portfolios before retail media became a priority category. But Walmart DSP, Kroger Precision Marketing, Target Roundel's programmatic offering, and a growing number of retailer-owned programmatic products each came with their own buying interface and often required direct seat relationships. These are not the same category as open-market DSPs — they're walled gardens with proprietary first-party data — but they require the same kind of seat management and trafficking expertise.</p>
+
+    <p>DOOH and programmatic audio added further fragmentation at the margin. Each channel brought its own preferred or purpose-built DSPs, and agencies serving clients who wanted full-channel coverage had no choice but to add seats.</p>
+
+    <div class="pull-quote">
+      <p>"We predicted that programmatic would get simpler as it matured. Instead, it got more channels, each with its own infrastructure. The consolidation argument assumed the universe of channels was fixed. It wasn't."</p>
+    </div>
+
+    <h2>The Operational Weight of Multi-DSP Management</h2>
+
+    <p>Managing 7+ DSPs is not merely an inconvenience — it creates compounding operational overhead that affects every aspect of programmatic execution. The specific burden areas:</p>
+
+    <h3>Seat Management Overhead</h3>
+    <p>Every DSP seat carries administrative overhead: user access management, billing account maintenance, deal ID management with SSP partners, data partner integrations, and the ongoing relationship management with DSP account teams who serve as the interface for technical issues. Multiplied across 7+ platforms, this overhead consumes meaningful time that isn't directly connected to campaign performance.</p>
+
+    <p>Seat audits — ensuring that the agency's DSP portfolio is actually being used efficiently — are a recurring necessity. Seats that aren't generating meaningful spend still carry administrative overhead and, in some cases, minimum spend commitments. Agencies that haven't audited their DSP portfolio recently often discover seats with minimal utilization that exist because of a client-specific requirement that has since expired, or because a channel experiment was never officially discontinued.</p>
+
+    <h3>Cross-DSP Frequency Management</h3>
+    <p>In a multi-DSP environment, frequency capping at the platform level creates a false sense of control. A user experiencing a campaign on The Trade Desk, DV360, and Amazon DSP simultaneously may be exposed far beyond the intended frequency even if each individual platform is operating within its defined cap. This cross-DSP frequency problem is one of the most persistent and difficult quality issues in programmatic, and it has no fully satisfactory solution today — only partial mitigations through identity resolution layers and conservative per-platform caps that effectively under-serve the campaign.</p>
+
+    <h3>Inconsistent Reporting and Attribution</h3>
+    <p>Each DSP reports differently. Impression counting methodologies vary. Attribution windows differ. Even basic metrics like viewability use different measurement standards across platforms. For an agency managing 7+ DSPs, the reconciliation required to produce a coherent cross-platform view of campaign performance is substantial — and the risk of attribution inflation (multiple DSPs each claiming credit for the same conversion) is high.</p>
+
+    <h2>How Agencies Are Managing Multi-DSP Complexity in 2026</h2>
+
+    <p>The agencies that have most successfully adapted to the multi-DSP reality share several operational approaches:</p>
+
+    <p><strong>Tiered DSP architecture.</strong> Rather than treating all 7+ DSPs as equivalent, leading agencies have established explicit tiers. Tier 1 DSPs (typically TTD and DV360 for most agencies) receive the majority of programmatic spend, full optimization attention, and dedicated specialist ownership. Tier 2 DSPs (retail media platforms, CTV-specific buys) are channel-specific and managed on a campaign-by-campaign basis. Tier 3 DSPs exist for specific client requirements and are managed with a reduced overhead profile. This tiering doesn't eliminate the platform count but creates a defensible resource allocation model.</p>
+
+    <p><strong>Centralized seat management.</strong> High-performing agencies have designated a programmatic operations lead or team responsible for all cross-DSP seat management, deal ID administration, and platform relationship management. This centralizes the administrative overhead rather than distributing it across individual campaign teams, creating specialization and reducing duplication.</p>
+
+    <p><strong>Platform-agnostic ops partners.</strong> An increasing number of agencies are addressing multi-DSP complexity by partnering with operations specialists who have established seat relationships and expertise across the full platform landscape. Rather than building internal expertise across 7+ DSPs — a genuine training and retention challenge — these agencies leverage partners whose entire operational model is built around multi-platform proficiency. This is particularly effective for the Tier 2 and Tier 3 DSP categories where internal expertise would be underutilized in the absence of a steady high-volume client requirement.</p>
+
+    <h2>The Next Three Years</h2>
+
+    <p>Will DSP consolidation finally arrive in the next three years? Our view is that meaningful consolidation at the primary DSP level is possible — the case for a single primary programmatic buying environment across open-web display, video, and audio is real, and the operational benefits for agencies would be significant.</p>
+
+    <p>But the structural forces that drove fragmentation — new channels with distinct inventory owners, retail media's continued expansion, the arrival of new programmatic surfaces in gaming and connected devices — will continue to produce new buying environments that don't fit neatly into existing DSP architectures. The question isn't whether agencies will ever reduce their DSP count; it's whether the organizational investment in managing a 7+ DSP portfolio will eventually become unsustainable enough to drive structural change.</p>
+
+    <p>That inflection point may arrive when the operational cost of managing dispersed DSPs — in staffing, training, and time — becomes visible enough to the C-suite to prompt a genuine strategic decision about platform architecture. For most agencies, that moment hasn't arrived yet. But as the programmatic universe continues to expand, it's coming.</p>
+
+  </main>
+
+  <!-- CTA Box -->
+  <div class="max-w-3xl mx-auto px-6 pb-16">
+    <div class="rounded-2xl p-8 text-center" style="background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);">
+      <h3 style="font-family:'Plus Jakarta Sans',sans-serif;" class="text-2xl font-bold text-white mb-3">Managing 7+ DSPs with the same team you had at 3?</h3>
+      <p class="text-white/80 text-sm mb-6">Factor42 provides platform-agnostic programmatic ops across your full DSP portfolio — without the seat management and training overhead. Let's talk about your current setup.</p>
+      <a href="consultation.html" class="inline-block bg-white text-blue-900 font-bold text-sm px-8 py-3 rounded-full hover:bg-blue-50 transition-colors">Book a Free Consultation</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-8 px-6 text-center text-sm text-slate-400">
+    © 2026 Factor42. All rights reserved.
+  </footer>
+
+</body>
+</html>

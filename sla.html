@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Service Level Agreement — Factor42</title>
+  <meta name="description" content="Factor42 Service Level Agreement — uptime commitments, trafficking SLAs, response times, and service credits." />
+  <meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #F0F4FF; color: #0A0F1E; -webkit-font-smoothing: antialiased; }
+    .gradient-text-blue { background: linear-gradient(135deg,#0066FF,#00B4D8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.2rem; font-weight: 700; color: #0A0F1E; margin-top: 2.5rem; margin-bottom: 0.75rem; }
+    h3 { font-size: 1rem; font-weight: 600; color: #1e293b; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    p, li { font-size: 0.9rem; color: #475569; line-height: 1.8; }
+    ul { list-style: disc; padding-left: 1.5rem; margin-top: 0.5rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.85rem; }
+    th { background: rgba(0,102,255,.08); color: #0A0F1E; font-weight: 600; text-align: left; padding: 0.6rem 1rem; border: 1px solid rgba(0,102,255,.12); }
+    td { padding: 0.6rem 1rem; border: 1px solid rgba(0,102,255,.1); color: #475569; }
+    tr:nth-child(even) td { background: rgba(255,255,255,.5); }
+    a.inline-link { color: #0066FF; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header class="fixed top-0 left-0 right-0 z-50 py-4 border-b" style="background:rgba(240,244,255,.97);border-color:rgba(0,102,255,.1);backdrop-filter:blur(16px)">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <a href="adfulfill-landing.html" class="text-2xl font-bold tracking-tight text-gray-900">Factor<span class="gradient-text-blue">42</span></a>
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="adfulfill-landing.html#services" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Services</a>
+      <a href="about.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">About</a>
+      <a href="blog.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Blog</a>
+      <a href="careers.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Careers</a>
+      <a href="consultation.html" class="text-sm font-semibold text-white px-4 py-2 rounded-lg" style="background:#0066FF">Get Started</a>
+    </nav>
+  </div>
+</header>
+
+<main class="pt-24 pb-20">
+  <div class="max-w-3xl mx-auto px-6">
+    <p class="text-xs text-slate-400 uppercase tracking-widest mb-2">Legal</p>
+    <h1 class="text-3xl font-bold text-gray-900 mb-1" style="font-family:'Plus Jakarta Sans',sans-serif">Service Level Agreement</h1>
+    <p class="text-sm text-slate-400 mb-8">Last Updated: April 12, 2026</p>
+
+    <p>This Service Level Agreement ("SLA") describes Factor42's service commitments to its clients. This SLA is incorporated by reference into the applicable Statement of Work (SOW) or Master Services Agreement (MSA). In the event of any conflict between this SLA and the SOW/MSA, the SOW/MSA shall prevail.</p>
+
+    <h2>1. Overview and Scope</h2>
+    <p>This SLA applies to the following services provided by Factor42:</p>
+    <ul>
+      <li>Ad campaign trafficking and launch management</li>
+      <li>Reporting dashboards and data delivery</li>
+      <li>Campaign monitoring, pacing, and optimization</li>
+      <li>Client support and incident response</li>
+    </ul>
+    <p>Commitments in this SLA are measured on a calendar-month basis unless otherwise specified.</p>
+
+    <h2>2. Service Availability</h2>
+    <h3>2.1 Reporting Dashboard Uptime</h3>
+    <p>Factor42 commits to maintaining <strong>99.9% monthly uptime</strong> for client-facing reporting dashboards and data portals. Uptime is calculated as:</p>
+    <p style="background:rgba(0,102,255,.06);padding:0.75rem 1rem;border-radius:8px;margin:0.75rem 0;font-family:monospace;font-size:0.85rem;">Uptime % = ((Total Minutes in Month - Downtime Minutes) / Total Minutes in Month) x 100</p>
+    <p>Scheduled maintenance windows are excluded from downtime calculations (see Section 7).</p>
+
+    <h3>2.2 Measurement</h3>
+    <p>Availability is measured using automated monitoring tools. Monthly uptime reports are available upon request.</p>
+
+    <h2>3. Ad Trafficking SLA</h2>
+    <p>Factor42 commits to the following campaign trafficking turnaround times from receipt of complete, approved creative assets and campaign briefs:</p>
+    <table>
+      <thead>
+        <tr><th>Tier</th><th>Turnaround Time</th><th>Availability</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Standard</strong></td><td>Within 4 business hours</td><td>All plans</td></tr>
+        <tr><td><strong>Priority</strong></td><td>Within 1 business hour</td><td>Scale plan and above</td></tr>
+        <tr><td><strong>Enterprise</strong></td><td>Within 30 minutes</td><td>Enterprise plan only</td></tr>
+      </tbody>
+    </table>
+    <p>Trafficking SLA timers begin upon Factor42's written confirmation of receipt of a complete and approved campaign brief. Incomplete briefs, missing creatives, or pending client approvals pause the SLA clock.</p>
+
+    <h2>4. Reporting Delivery SLA</h2>
+    <table>
+      <thead>
+        <tr><th>Report Type</th><th>Delivery Commitment</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Daily Performance Report</td><td>Delivered by 9:00 AM client local time, Monday–Friday</td></tr>
+        <tr><td>Weekly Pacing Report</td><td>Delivered every Monday by 10:00 AM</td></tr>
+        <tr><td>End-of-Campaign Wrap Report</td><td>Delivered within 24 business hours of campaign end date</td></tr>
+        <tr><td>Custom Reports</td><td>As specified in the applicable SOW</td></tr>
+      </tbody>
+    </table>
+    <p>Reporting delivery is dependent on data availability from advertising platforms. Platform-side data delays (e.g., Google Ads, Meta reporting latency) do not constitute a Factor42 SLA breach.</p>
+
+    <h2>5. Incident Response</h2>
+    <p>Factor42 classifies incidents by severity and commits to the following response and resolution targets:</p>
+    <table>
+      <thead>
+        <tr><th>Priority</th><th>Definition</th><th>Initial Response</th><th>Resolution Target</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>P1 — Critical</strong></td><td>Complete service outage or active campaign delivery failure affecting significant spend</td><td>1 hour</td><td>4 hours</td></tr>
+        <tr><td><strong>P2 — High</strong></td><td>Significant degradation of service or reporting; major campaign pacing issue</td><td>4 hours</td><td>1 business day</td></tr>
+        <tr><td><strong>P3 — Medium</strong></td><td>Partial service degradation; minor pacing or reporting discrepancy</td><td>1 business day</td><td>3 business days</td></tr>
+        <tr><td><strong>P4 — Low</strong></td><td>General inquiries, feature requests, non-urgent reporting questions</td><td>3 business days</td><td>Best effort</td></tr>
+      </tbody>
+    </table>
+    <p>Response times are measured from the time a support ticket is submitted via the designated support channel during business hours (Monday–Friday, 9 AM–6 PM ET). P1 incidents may be escalated 24/7 via the emergency contact provided in your SOW.</p>
+
+    <h2>6. Service Credits</h2>
+    <h3>6.1 Credit Conditions</h3>
+    <ul>
+      <li>Credits must be requested in writing within 30 days of the month in which the SLA breach occurred</li>
+      <li>Credits are the sole and exclusive remedy for SLA breaches and shall not exceed 30% of the monthly management fee in any given month</li>
+      <li>Credits are not redeemable for cash and apply only to future invoices</li>
+      <li>Clients in arrears on payment are not eligible for service credits</li>
+    </ul>
+
+    <h2>7. Scheduled Maintenance</h2>
+    <p>Factor42 will provide clients with at least <strong>8 hours advance notice</strong> of scheduled maintenance that may impact service availability. Scheduled maintenance is planned during off-peak hours (typically between 11 PM and 5 AM ET on weekdays, or weekends) and does not count toward monthly downtime calculations.</p>
+
+    <h2>8. Exclusions</h2>
+    <p>SLA commitments do not apply to service disruptions caused by:</p>
+    <ul>
+      <li>Force majeure events (natural disasters, war, government actions, internet backbone failures)</li>
+      <li>Outages or policy changes at third-party advertising platforms (Google, Meta, TikTok, LinkedIn, etc.) beyond Factor42's control</li>
+      <li>Client-side delays including late creative submissions, delayed approvals, or incomplete briefs</li>
+      <li>Data inaccuracies or delays originating from ad platform reporting APIs</li>
+      <li>Suspension of services due to Client's non-payment or breach of the MSA/SOW</li>
+      <li>Client-requested changes that alter campaign delivery mid-flight</li>
+    </ul>
+
+    <h2>9. Escalation Procedure</h2>
+    <p>If a support issue is not resolved within the committed timeframe, Client may escalate as follows:</p>
+    <ul>
+      <li><strong>Level 1:</strong> Assigned Account Manager — first point of contact for all service issues</li>
+      <li><strong>Level 2:</strong> Director of Ad Operations — escalation for unresolved P1/P2 incidents after initial response window</li>
+      <li><strong>Level 3:</strong> Executive Team — for critical unresolved escalations affecting campaign delivery significantly</li>
+    </ul>
+    <p>Escalation contact information is provided in the applicable SOW.</p>
+
+    <h2>10. SLA Review</h2>
+    <p>Factor42 conducts quarterly SLA performance reviews with Enterprise clients. These reviews cover uptime, trafficking turnaround performance, reporting delivery accuracy, and incident history. SLA terms may be adjusted by mutual written agreement at each quarterly review or at contract renewal.</p>
+
+    <h2>11. Contact</h2>
+    <p>To submit a support request or report an incident: <a class="inline-link" href="mailto:support@factor42.com">support@factor42.com</a></p>
+    <p>For SLA credit requests: <a class="inline-link" href="mailto:billing@factor42.com">billing@factor42.com</a></p>
+  </div>
+</main>
+
+<footer class="border-t py-8 px-6" style="border-color:rgba(0,102,255,.1)">
+  <div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-xs text-slate-500">&copy; 2026 Factor42, Inc. All rights reserved.</p>
+    <nav class="flex flex-wrap gap-4">
+      <a href="privacy-policy.html" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">Privacy Policy</a>
+      <a href="terms-of-service.html" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">Terms of Service</a>
+      <a href="sla.html" class="text-xs text-blue-600 font-medium">SLA</a>
+      <a href="security.html" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">Security</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
