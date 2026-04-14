@@ -148,6 +148,21 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
     }
+
+    /* Solutions tabs */
+    .sol-tab {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 0.5rem 1rem; border-radius: 9999px;
+      font-size: 0.8125rem; font-weight: 600; cursor: pointer;
+      border: 1.5px solid rgba(0,102,255,.15);
+      background: rgba(255,255,255,.8); color: #475569;
+      transition: all .2s;
+    }
+    .sol-tab:hover { border-color: #0066FF; color: #0066FF; background: rgba(255,255,255,.95); }
+    .sol-tab.active { border-color: #0066FF; background: #0066FF; color: white; box-shadow: 0 4px 14px rgba(0,102,255,.3); }
+    .sol-tab.active svg path, .sol-tab.active svg rect, .sol-tab.active svg line, .sol-tab.active svg circle, .sol-tab.active svg polyline { stroke: white !important; }
+    .sol-panel { animation: fadeIn .35s ease-out; }
+    .sol-panel.hidden { display: none; }
   </style>
 </head>
 <body>
@@ -172,10 +187,11 @@
     <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
       <a href="#services"    class="text-sm font-medium text-slate-500 hover:text-gray-900 transition-colors">Services</a>
       <a href="#how-it-works" class="text-sm font-medium text-slate-500 hover:text-gray-900 transition-colors">How It Works</a>
-      <a href="#results"     class="text-sm font-medium text-slate-500 hover:text-gray-900 transition-colors">Results</a>
+      <a href="#solutions"   class="text-sm font-medium text-slate-500 hover:text-gray-900 transition-colors">Solutions</a>
       <a href="about.html"   class="text-sm font-medium text-slate-500 hover:text-gray-900 transition-colors">About</a>
       <a href="blog.html"    class="text-sm font-medium text-slate-500 hover:text-gray-900 transition-colors">Blog</a>
       <a href="careers.html" class="text-sm font-medium text-slate-500 hover:text-gray-900 transition-colors">Careers</a>
+      <a href="contact.html" class="text-sm font-medium text-slate-500 hover:text-gray-900 transition-colors">Contact</a>
     </nav>
     <!-- Desktop CTAs -->
     <div class="hidden md:flex items-center gap-3">
@@ -193,10 +209,11 @@
     <nav class="flex flex-col gap-1 px-6 py-4" aria-label="Mobile navigation">
       <a href="#services"    class="text-sm font-medium text-slate-500 hover:text-gray-900 py-3 border-b transition-colors" style="border-color:rgba(0,0,0,.06)">Services</a>
       <a href="#how-it-works" class="text-sm font-medium text-slate-500 hover:text-gray-900 py-3 border-b transition-colors" style="border-color:rgba(0,0,0,.06)">How It Works</a>
-      <a href="#results"     class="text-sm font-medium text-slate-500 hover:text-gray-900 py-3 border-b transition-colors" style="border-color:rgba(0,0,0,.06)">Results</a>
+      <a href="#solutions"   class="text-sm font-medium text-slate-500 hover:text-gray-900 py-3 border-b transition-colors" style="border-color:rgba(0,0,0,.06)">Solutions</a>
       <a href="about.html"   class="text-sm font-medium text-slate-500 hover:text-gray-900 py-3 border-b transition-colors" style="border-color:rgba(0,0,0,.06)">About</a>
       <a href="blog.html"    class="text-sm font-medium text-slate-500 hover:text-gray-900 py-3 border-b transition-colors" style="border-color:rgba(0,0,0,.06)">Blog</a>
-      <a href="careers.html" class="text-sm font-medium text-slate-500 hover:text-gray-900 py-3 transition-colors">Careers</a>
+      <a href="careers.html" class="text-sm font-medium text-slate-500 hover:text-gray-900 py-3 border-b transition-colors" style="border-color:rgba(0,0,0,.06)">Careers</a>
+      <a href="contact.html" class="text-sm font-medium text-slate-500 hover:text-gray-900 py-3 transition-colors">Contact</a>
       <div class="flex flex-col gap-3 pt-4">
         <a href="consultation.html" class="btn-primary text-sm font-semibold text-white px-5 py-3 rounded-lg text-center">Get Started</a>
       </div>
@@ -542,70 +559,249 @@
   </section>
 
   <!-- ── TESTIMONIALS ──────────────────────────────────────────── -->
-  <section id="results" class="py-24 px-6" aria-labelledby="testimonials-heading">
+  <!-- ═══ SOLUTIONS ═══ -->
+  <section id="solutions" class="py-24 px-6 overflow-hidden" aria-labelledby="solutions-heading">
     <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16 reveal">
-        <span class="inline-block text-xs font-semibold text-blue-500 uppercase tracking-widest mb-4">Client Stories</span>
-        <h2 id="testimonials-heading" class="text-4xl sm:text-5xl font-bold text-gray-900 mb-5 tracking-tight" style="font-family:'Plus Jakarta Sans',sans-serif">
-          Results That <span class="gradient-text-blue">Speak</span>
+
+      <!-- Header -->
+      <div class="text-center mb-14 reveal">
+        <span class="inline-block text-xs font-semibold text-blue-500 uppercase tracking-widest mb-4">Our Solutions</span>
+        <h2 id="solutions-heading" class="text-4xl sm:text-5xl font-bold text-gray-900 mb-5 tracking-tight" style="font-family:'Plus Jakarta Sans',sans-serif">
+          One Partner. <span class="gradient-text-blue">Every Channel.</span>
         </h2>
-        <p class="text-slate-600 text-lg max-w-xl mx-auto">From regional publishers to national media networks — here's what our partners say.</p>
+        <p class="text-slate-600 text-lg max-w-xl mx-auto">We execute campaigns across every major digital surface — from search to streaming, display to digital-out-of-home.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-        <blockquote class="glass-card rounded-2xl p-7 flex flex-col gap-6 reveal" style="transition-delay:.05s">
-          <div class="flex gap-1" aria-label="5 out of 5 stars">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="text-slate-600 text-sm leading-relaxed flex-1">"Factor42 cut our campaign launch time from days to hours. The trafficking accuracy alone paid for itself in the first month."</p>
-          <footer class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style="background:linear-gradient(135deg,#0066FF,#0066FF99)" aria-hidden="true">SC</div>
-            <div>
-              <cite class="not-italic text-sm font-semibold text-gray-900 block">Sarah Chen</cite>
-              <span class="text-xs text-slate-500">VP of Digital Operations, Meridian Media Group</span>
-            </div>
-          </footer>
-        </blockquote>
+      <!-- Tab bar -->
+      <div class="flex flex-wrap justify-center gap-2 mb-10 reveal" style="transition-delay:.05s" role="tablist" aria-label="Ad channel solutions">
+        <button class="sol-tab active" data-tab="google" role="tab" aria-selected="true" aria-controls="tab-google">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Google Ads
+        </button>
+        <button class="sol-tab" data-tab="youtube" role="tab" aria-selected="false" aria-controls="tab-youtube">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          YouTube
+        </button>
+        <button class="sol-tab" data-tab="dooh" role="tab" aria-selected="false" aria-controls="tab-dooh">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          DOOH
+        </button>
+        <button class="sol-tab" data-tab="ott" role="tab" aria-selected="false" aria-controls="tab-ott">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2"><path d="M22 9V7H2v5a10 10 0 0 0 20 0V9z"/><path d="M6 9V4h12v5"/><circle cx="12" cy="15" r="1"/></svg>
+          OTT / CTV
+        </button>
+        <button class="sol-tab" data-tab="programmatic" role="tab" aria-selected="false" aria-controls="tab-programmatic">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/><rect x="2" y="13" width="9" height="9" rx="1"/><rect x="13" y="13" width="9" height="9" rx="1"/></svg>
+          Programmatic
+        </button>
+        <button class="sol-tab" data-tab="social" role="tab" aria-selected="false" aria-controls="tab-social">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><path d="M17 2h4v4l-4-4zM3 22l7-7"/><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/></svg>
+          Social
+        </button>
+      </div>
 
-        <blockquote class="glass-card rounded-2xl p-7 flex flex-col gap-6 reveal" style="transition-delay:.12s">
-          <div class="flex gap-1" aria-label="5 out of 5 stars">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="text-slate-600 text-sm leading-relaxed flex-1">"Finally a fulfillment partner that speaks our language. The unified reporting dashboard replaced four separate tools we were maintaining."</p>
-          <footer class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style="background:linear-gradient(135deg,#00D4FF,#00D4FF99)" aria-hidden="true">MW</div>
-            <div>
-              <cite class="not-italic text-sm font-semibold text-gray-900 block">Marcus Williams</cite>
-              <span class="text-xs text-slate-500">Head of Programmatic, Apex Digital Agency</span>
-            </div>
-          </footer>
-        </blockquote>
+      <!-- Tab panels -->
+      <div class="relative reveal" style="transition-delay:.1s">
 
-        <blockquote class="glass-card rounded-2xl p-7 flex flex-col gap-6 reveal" style="transition-delay:.2s">
-          <div class="flex gap-1" aria-label="5 out of 5 stars">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0066FF" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="text-slate-600 text-sm leading-relaxed flex-1">"Scaling from 50 to 200 concurrent campaigns without adding headcount — that's what Factor42 made possible for us."</p>
-          <footer class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style="background:linear-gradient(135deg,#6366F1,#6366F199)" aria-hidden="true">PN</div>
-            <div>
-              <cite class="not-italic text-sm font-semibold text-gray-900 block">Priya Nair</cite>
-              <span class="text-xs text-slate-500">Director of Ad Operations, NextWave Broadcasting</span>
+        <!-- GOOGLE ADS -->
+        <div id="tab-google" class="sol-panel active" role="tabpanel" aria-labelledby="tab-btn-google">
+          <div class="glass-card rounded-3xl overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+              <div class="p-10 flex flex-col justify-center">
+                <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest mb-4 px-3 py-1.5 rounded-full w-fit" style="background:rgba(66,133,244,.1);color:#4285F4;">
+                  Search · Display · Shopping
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-bold mb-4 text-gray-900" style="font-family:'Plus Jakarta Sans',sans-serif">Google Ads — Full-Funnel Campaign Execution</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-7">From keyword strategy to bid management, we traffic and optimize Google campaigns with the precision your budget demands. Every impression accountable.</p>
+                <ul class="flex flex-col gap-3 mb-8">
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(66,133,244,.12)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Search, Display, Performance Max &amp; Shopping campaigns</li>
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(66,133,244,.12)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Smart bidding, audience layering, and negative keyword management</li>
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(66,133,244,.12)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Google Analytics 4 &amp; Campaign Manager 360 integration</li>
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(66,133,244,.12)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Daily pacing reports &amp; weekly optimization reviews</li>
+                </ul>
+                <a href="consultation.html" class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white w-fit">
+                  Get Started <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+              <div class="relative min-h-64 lg:min-h-0 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&fit=crop" alt="Google Ads analytics dashboard" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(66,133,244,.25),rgba(52,168,83,.15))"></div>
+                <div class="absolute bottom-5 left-5 glass-card rounded-xl px-4 py-3">
+                  <p class="text-xs text-slate-500 mb-0.5">Avg. Launch Time</p>
+                  <p class="text-xl font-bold text-gray-900" style="font-family:'Plus Jakarta Sans',sans-serif">&lt; 4 hrs</p>
+                </div>
+              </div>
             </div>
-          </footer>
-        </blockquote>
+          </div>
+        </div>
+
+        <!-- YOUTUBE -->
+        <div id="tab-youtube" class="sol-panel hidden" role="tabpanel" aria-labelledby="tab-btn-youtube">
+          <div class="glass-card rounded-3xl overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+              <div class="p-10 flex flex-col justify-center">
+                <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest mb-4 px-3 py-1.5 rounded-full w-fit" style="background:rgba(255,0,0,.08);color:#cc0000;">
+                  Video · Awareness · Reach
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-bold mb-4 text-gray-900" style="font-family:'Plus Jakarta Sans',sans-serif">YouTube — Video Advertising at Scale</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-7">Reach audiences where they're watching. We handle end-to-end YouTube campaign setup — from skippable pre-rolls to Masthead placements — with creative sequencing that drives results.</p>
+                <ul class="flex flex-col gap-3 mb-8">
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(255,0,0,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>TrueView In-Stream, Bumper, Non-Skippable &amp; Masthead</li>
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(255,0,0,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Audience targeting by intent, demographics &amp; custom segments</li>
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(255,0,0,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Creative sequencing &amp; brand lift measurement</li>
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(255,0,0,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>VCR, CPV, and reach optimization across campaigns</li>
+                </ul>
+                <a href="consultation.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white w-fit" style="background:linear-gradient(135deg,#FF0000,#cc0000)">
+                  Get Started <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+              <div class="relative min-h-64 lg:min-h-0 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80&fit=crop" alt="YouTube video advertising" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(0,0,0,.45),rgba(255,0,0,.15))"></div>
+                <!-- Play button overlay -->
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="w-16 h-16 rounded-full flex items-center justify-center" style="background:rgba(255,0,0,.9);box-shadow:0 0 0 8px rgba(255,0,0,.2)">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="absolute bottom-5 left-5 glass-card rounded-xl px-4 py-3">
+                  <p class="text-xs text-slate-500 mb-0.5">Avg. View Rate</p>
+                  <p class="text-xl font-bold text-gray-900" style="font-family:'Plus Jakarta Sans',sans-serif">35%+</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DOOH -->
+        <div id="tab-dooh" class="sol-panel hidden" role="tabpanel" aria-labelledby="tab-btn-dooh">
+          <div class="glass-card rounded-3xl overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+              <div class="p-10 flex flex-col justify-center">
+                <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest mb-4 px-3 py-1.5 rounded-full w-fit" style="background:rgba(124,58,237,.1);color:#7c3aed;">
+                  Out-of-Home · Programmatic · Real-World
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-bold mb-4 text-gray-900" style="font-family:'Plus Jakarta Sans',sans-serif">DOOH — Digital Out-of-Home Campaigns</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-7">Bridge the physical and digital worlds. We traffic and manage programmatic DOOH campaigns across billboards, transit, retail, and venue screens — with real-time creative flexibility.</p>
+                <ul class="flex flex-col gap-3 mb-8">
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(124,58,237,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Programmatic DOOH via Vistar, Broadsign &amp; Place Exchange</li>
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(124,58,237,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Billboard, transit, retail &amp; venue screen formats</li>
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(124,58,237,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Geo-targeted audience delivery &amp; weather/time triggers</li>
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(124,58,237,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Real-time creative swaps without campaign restarts</li>
+                </ul>
+                <a href="consultation.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white w-fit" style="background:linear-gradient(135deg,#7c3aed,#6d28d9)">
+                  Get Started <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+              <div class="relative min-h-64 lg:min-h-0 overflow-hidden">
+                <img src="https://images.squarespace-cdn.com/content/v1/5dee6587e159e73b7ff7d7cc/253c666c-01b8-4cef-b023-075faed95e3c/Bus+Stop+Adverts?format=1500w" alt="Bus stop advertising display on city street" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <!-- Subtle overlay -->
+                <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(109,40,217,.08),rgba(0,0,0,.05))"></div>
+
+                <div class="absolute bottom-5 left-5 glass-card rounded-xl px-4 py-3">
+                  <p class="text-xs text-slate-500 mb-0.5">Screen Formats</p>
+                  <p class="text-xl font-bold text-gray-900" style="font-family:'Plus Jakarta Sans',sans-serif">50+ Types</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- OTT / CTV -->
+        <div id="tab-ott" class="sol-panel hidden" role="tabpanel" aria-labelledby="tab-btn-ott">
+          <div class="glass-card rounded-3xl overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+              <div class="p-10 flex flex-col justify-center">
+                <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest mb-4 px-3 py-1.5 rounded-full w-fit" style="background:rgba(14,165,233,.1);color:#0284c7;">
+                  Streaming · Connected TV · Video
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-bold mb-4 text-gray-900" style="font-family:'Plus Jakarta Sans',sans-serif">OTT / CTV — Reach Cord-Cutters at Scale</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-7">Meet audiences on Roku, Hulu, Peacock, Amazon Fire TV, and beyond. We traffic and manage connected TV campaigns with precision targeting that rivals the best of digital.</p>
+                <ul class="flex flex-col gap-3 mb-8">
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(14,165,233,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Roku, Hulu, Peacock, Amazon Fire TV &amp; more</li>
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(14,165,233,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Household-level targeting with first-party &amp; ACR data</li>
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(14,165,233,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Pre-roll, mid-roll, pause ads &amp; interactive overlays</li>
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(14,165,233,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Cross-device attribution &amp; reach/frequency controls</li>
+                </ul>
+                <a href="consultation.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white w-fit" style="background:linear-gradient(135deg,#0ea5e9,#0284c7)">
+                  Get Started <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+              <div class="relative min-h-64 lg:min-h-0 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=800&q=80&fit=crop" alt="Family watching streaming TV on the couch" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(14,165,233,.25),rgba(2,132,199,.1))"></div>
+                <div class="absolute bottom-5 left-5 glass-card rounded-xl px-4 py-3">
+                  <p class="text-xs text-slate-500 mb-0.5">Completion Rate</p>
+                  <p class="text-xl font-bold text-gray-900" style="font-family:'Plus Jakarta Sans',sans-serif">95%+</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROGRAMMATIC -->
+        <div id="tab-programmatic" class="sol-panel hidden" role="tabpanel" aria-labelledby="tab-btn-programmatic">
+          <div class="glass-card rounded-3xl overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+              <div class="p-10 flex flex-col justify-center">
+                <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest mb-4 px-3 py-1.5 rounded-full w-fit" style="background:rgba(0,102,255,.08);color:#0066FF;">
+                  Display · Native · DV360 · The Trade Desk
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-bold mb-4 text-gray-900" style="font-family:'Plus Jakarta Sans',sans-serif">Programmatic Display — Precision at Every Bid</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-7">We operate across DV360, The Trade Desk, and all major DSPs to traffic display, native, and rich media campaigns with tight audience controls and zero wasted impressions.</p>
+                <ul class="flex flex-col gap-3 mb-8">
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(0,102,255,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>DV360, The Trade Desk, Xandr, Amazon DSP &amp; more</li>
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(0,102,255,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Display, native, rich media &amp; high-impact formats</li>
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(0,102,255,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>PMP deals, guaranteed inventory &amp; open auction</li>
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(0,102,255,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>IAS/DoubleVerify brand safety &amp; viewability controls</li>
+                </ul>
+                <a href="consultation.html" class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white w-fit">
+                  Get Started <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+              <div class="relative min-h-64 lg:min-h-0 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&fit=crop" alt="Programmatic advertising dashboard" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(0,102,255,.2),rgba(0,180,216,.1))"></div>
+                <div class="absolute bottom-5 left-5 glass-card rounded-xl px-4 py-3">
+                  <p class="text-xs text-slate-500 mb-0.5">DSPs Managed</p>
+                  <p class="text-xl font-bold text-gray-900" style="font-family:'Plus Jakarta Sans',sans-serif">12+ Platforms</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOCIAL -->
+        <div id="tab-social" class="sol-panel hidden" role="tabpanel" aria-labelledby="tab-btn-social">
+          <div class="glass-card rounded-3xl overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+              <div class="p-10 flex flex-col justify-center">
+                <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest mb-4 px-3 py-1.5 rounded-full w-fit" style="background:rgba(249,115,22,.1);color:#ea580c;">
+                  Meta · TikTok · LinkedIn · Reddit
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-bold mb-4 text-gray-900" style="font-family:'Plus Jakarta Sans',sans-serif">Social Media — Where Your Audience Scrolls</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-7">From Meta Reels to TikTok In-Feed to LinkedIn Sponsored Content — we traffic and optimize paid social campaigns across every major platform your audience uses daily.</p>
+                <ul class="flex flex-col gap-3 mb-8">
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(249,115,22,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Meta (Facebook &amp; Instagram), TikTok, LinkedIn &amp; Reddit</li>
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(249,115,22,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Feed, Stories, Reels, In-Feed video &amp; Sponsored Content</li>
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(249,115,22,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Lookalike audiences, retargeting &amp; custom audiences</li>
+                  <li class="flex items-start gap-3 text-sm text-slate-600"><span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(249,115,22,.1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Creative A/B testing, ROAS optimization &amp; catalog ads</li>
+                </ul>
+                <a href="consultation.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white w-fit" style="background:linear-gradient(135deg,#f97316,#ea580c)">
+                  Get Started <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+              <div class="relative min-h-64 lg:min-h-0 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?w=800&q=80&fit=crop" alt="Social media advertising on mobile" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(249,115,22,.2),rgba(234,88,12,.1))"></div>
+                <div class="absolute bottom-5 left-5 glass-card rounded-xl px-4 py-3">
+                  <p class="text-xs text-slate-500 mb-0.5">Social Platforms</p>
+                  <p class="text-xl font-bold text-gray-900" style="font-family:'Plus Jakarta Sans',sans-serif">6+ Networks</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -653,6 +849,15 @@
           <span class="text-2xl font-bold tracking-tight text-gray-900">Factor<span class="gradient-text-blue">42</span></span>
         </a>
         <p class="text-slate-500 text-sm leading-relaxed max-w-xs">Full-service digital ad fulfillment for media companies and agencies. We execute your campaigns so you can focus on growth.</p>
+        <div class="flex items-center gap-3 mt-5">
+          <a href="https://www.linkedin.com/company/factor42" target="_blank" rel="noopener noreferrer" aria-label="Factor42 on LinkedIn"
+             class="w-9 h-9 rounded-lg flex items-center justify-center transition-colors hover:bg-blue-100"
+             style="background:rgba(0,102,255,.08)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#0066FF" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+        </div>
       </div>
       <!-- Services -->
       <nav aria-label="Services links">
@@ -748,8 +953,23 @@
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.08 });
   revealEls.forEach(el => observer.observe(el));
+  setTimeout(() => revealEls.forEach(el => el.classList.add('revealed')), 400);
+
+  // Solutions tab switcher
+  const solTabs = document.querySelectorAll('.sol-tab');
+  const solPanels = document.querySelectorAll('.sol-panel');
+  solTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      solTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+      solPanels.forEach(p => p.classList.add('hidden'));
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      document.getElementById('tab-' + target).classList.remove('hidden');
+    });
+  });
 </script>
 </body>
 </html>

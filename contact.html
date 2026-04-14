@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — Factor42</title>
+  <meta name="description" content="Get in touch with Factor42. Reach out for questions about our ad operations services, partnerships, or general inquiries." />
+  <meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; background-color: #F0F4FF; color: #0A0F1E; -webkit-font-smoothing: antialiased; margin: 0; }
+
+    .gradient-text-blue { background: linear-gradient(135deg,#0066FF,#00B4D8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .glass-card { background: rgba(255,255,255,.9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(0,102,255,.12); box-shadow: 0 4px 24px rgba(0,102,255,.07); }
+
+    .btn-primary { background: linear-gradient(135deg,#0066FF,#0052CC); transition: filter .2s, transform .15s; }
+    .btn-primary:hover  { filter: brightness(1.12); }
+    .btn-primary:active { transform: scale(.98); }
+
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(0,102,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,102,255,.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .f42-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(0,102,255,.18);
+      background: rgba(255,255,255,.95);
+      font-size: 0.875rem;
+      color: #0A0F1E;
+      outline: none;
+      transition: border-color .18s, box-shadow .18s;
+      font-family: 'Inter', sans-serif;
+    }
+    .f42-input:focus { border-color: #0066FF; box-shadow: 0 0 0 3px rgba(0,102,255,.12); }
+    .f42-input::placeholder { color: #94a3b8; }
+
+    label { display: block; font-size: 0.8125rem; font-weight: 600; color: #1e293b; margin-bottom: 0.4rem; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .5s ease, transform .5s ease; }
+    .reveal.revealed { opacity: 1; transform: none; }
+
+    /* Info card hover */
+    .info-card { transition: box-shadow .2s, transform .2s; }
+    .info-card:hover { box-shadow: 0 8px 32px rgba(0,102,255,.12); transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="fixed top-0 left-0 right-0 z-50 py-4 border-b" style="background:rgba(240,244,255,.97);border-color:rgba(0,102,255,.1);backdrop-filter:blur(16px)">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <a href="adfulfill-landing.html" class="text-2xl font-bold tracking-tight text-gray-900" style="font-family:'Plus Jakarta Sans',sans-serif">Factor<span class="gradient-text-blue">42</span></a>
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="adfulfill-landing.html#services" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Services</a>
+      <a href="about.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">About</a>
+      <a href="blog.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Blog</a>
+      <a href="careers.html" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">Careers</a>
+      <a href="consultation.html" class="text-sm font-semibold text-white px-4 py-2 rounded-lg" style="background:#0066FF">Get Started</a>
+    </nav>
+  </div>
+</header>
+
+<main class="pt-24 pb-20">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="grid-bg py-16 px-6 text-center">
+    <div class="max-w-2xl mx-auto reveal">
+      <p class="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-3">Contact Us</p>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4" style="font-family:'Plus Jakarta Sans',sans-serif">We'd Love to <span class="gradient-text-blue">Hear From You</span></h1>
+      <p class="text-slate-500 text-base leading-relaxed">Have a question about our services, pricing, or how we work? Reach out — a real person on our team will get back to you.</p>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT GRID ═══ -->
+  <section class="py-16 px-6">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-10">
+
+      <!-- LEFT — Contact form -->
+      <div class="lg:col-span-3 reveal">
+        <div class="glass-card rounded-2xl p-8">
+          <h2 class="text-xl font-bold mb-1" style="font-family:'Plus Jakarta Sans',sans-serif">Send Us a Message</h2>
+          <p class="text-sm text-slate-500 mb-7">We'll respond within one business day.</p>
+
+          <form id="contact-form" novalidate>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+              <div>
+                <label for="first-name">First Name <span class="text-blue-600">*</span></label>
+                <input type="text" id="first-name" name="first_name" class="f42-input" placeholder="Jane" required />
+              </div>
+              <div>
+                <label for="last-name">Last Name <span class="text-blue-600">*</span></label>
+                <input type="text" id="last-name" name="last_name" class="f42-input" placeholder="Smith" required />
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <label for="email">Work Email <span class="text-blue-600">*</span></label>
+              <input type="email" id="email" name="email" class="f42-input" placeholder="jane@company.com" required />
+            </div>
+
+            <div class="mb-5">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" class="f42-input" placeholder="Your company name" />
+            </div>
+
+            <div class="mb-5">
+              <label for="subject">Subject <span class="text-blue-600">*</span></label>
+              <select id="subject" name="subject" class="f42-input" required style="appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem;">
+                <option value="" disabled selected>Select a topic…</option>
+                <option value="services">Services &amp; Pricing</option>
+                <option value="partnership">Partnership Inquiry</option>
+                <option value="support">Client Support</option>
+                <option value="press">Press &amp; Media</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="mb-7">
+              <label for="message">Message <span class="text-blue-600">*</span></label>
+              <textarea id="message" name="message" rows="5" class="f42-input" placeholder="Tell us how we can help…" required style="resize:vertical;min-height:120px;"></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary w-full py-3.5 rounded-xl text-sm font-semibold text-white flex items-center justify-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4 20-7z"/></svg>
+              Send Message
+            </button>
+          </form>
+
+          <!-- Success state -->
+          <div id="success-panel" class="hidden text-center py-10">
+            <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5" style="background:rgba(52,168,83,.12)">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2" style="font-family:'Plus Jakarta Sans',sans-serif">Message Sent!</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">Thanks for reaching out. We'll be in touch within one business day.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT — Info cards -->
+      <div class="lg:col-span-2 flex flex-col gap-5">
+
+        <!-- Email -->
+        <div class="glass-card info-card rounded-2xl p-6 reveal" style="transition-delay:.08s">
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(0,102,255,.1)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-1">Email</p>
+              <a href="mailto:support@factor42media.com" class="text-sm font-semibold text-blue-600 hover:underline">support@factor42media.com</a>
+              <p class="text-xs text-slate-400 mt-1">We respond within 1 business day</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Response time -->
+        <div class="glass-card info-card rounded-2xl p-6 reveal" style="transition-delay:.14s">
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(0,180,216,.1)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-1">Response Time</p>
+              <p class="text-sm font-semibold text-gray-800">Under 4 hours</p>
+              <p class="text-xs text-slate-400 mt-1">For active clients on our SLA</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Remote-first -->
+        <div class="glass-card info-card rounded-2xl p-6 reveal" style="transition-delay:.2s">
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(52,168,83,.1)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-1">Location</p>
+              <p class="text-sm font-semibold text-gray-800">100% Remote</p>
+              <p class="text-xs text-slate-400 mt-1">Serving clients across North America &amp; EMEA</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Consultation CTA -->
+        <div class="rounded-2xl p-6 reveal" style="background:linear-gradient(135deg,#0066FF,#00B4D8);transition-delay:.26s">
+          <p class="text-xs font-semibold uppercase tracking-widest text-blue-100 mb-2">Ready to get started?</p>
+          <p class="text-white font-bold text-base mb-4" style="font-family:'Plus Jakarta Sans',sans-serif">Book a free 30-min strategy call with our team.</p>
+          <a href="consultation.html" class="inline-flex items-center gap-2 bg-white text-blue-600 text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-50 transition-colors">
+            Book a Consultation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ STRIP ═══ -->
+  <section class="py-12 px-6" style="background:rgba(255,255,255,.5)">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-xl font-bold text-center mb-8 reveal" style="font-family:'Plus Jakarta Sans',sans-serif">Common Questions</h2>
+      <div class="flex flex-col gap-4">
+
+        <details class="glass-card rounded-xl p-5 reveal group" style="transition-delay:.04s">
+          <summary class="flex items-center justify-between cursor-pointer text-sm font-semibold text-gray-800 list-none">
+            How quickly can Factor42 onboard a new client?
+            <svg class="flex-shrink-0 transition-transform group-open:rotate-180" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <p class="text-sm text-slate-500 mt-3 leading-relaxed">Most clients are fully onboarded within 3–5 business days. We handle platform access, kickoff, and first campaign setup as a single coordinated handoff.</p>
+        </details>
+
+        <details class="glass-card rounded-xl p-5 reveal group" style="transition-delay:.08s">
+          <summary class="flex items-center justify-between cursor-pointer text-sm font-semibold text-gray-800 list-none">
+            Do you work with agencies or direct advertisers?
+            <svg class="flex-shrink-0 transition-transform group-open:rotate-180" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <p class="text-sm text-slate-500 mt-3 leading-relaxed">Both. We partner with independent agencies, media companies, and in-house marketing teams that need expert ad ops support at scale.</p>
+        </details>
+
+        <details class="glass-card rounded-xl p-5 reveal group" style="transition-delay:.12s">
+          <summary class="flex items-center justify-between cursor-pointer text-sm font-semibold text-gray-800 list-none">
+            What platforms do you support?
+            <svg class="flex-shrink-0 transition-transform group-open:rotate-180" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <p class="text-sm text-slate-500 mt-3 leading-relaxed">We operate across 12+ platforms including Google Ads, DV360, Meta, TikTok, LinkedIn, The Trade Desk, Reddit, Snapchat, Campaign Manager 360, and more.</p>
+        </details>
+
+        <details class="glass-card rounded-xl p-5 reveal group" style="transition-delay:.16s">
+          <summary class="flex items-center justify-between cursor-pointer text-sm font-semibold text-gray-800 list-none">
+            Is there a minimum spend or contract requirement?
+            <svg class="flex-shrink-0 transition-transform group-open:rotate-180" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <p class="text-sm text-slate-500 mt-3 leading-relaxed">We work with clients on flexible terms. Reach out via the form above or book a consultation to discuss what works for your engagement size.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t py-8 px-6" style="border-color:rgba(0,102,255,.1)">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-xs text-slate-500">&copy; 2026 Factor42, Inc. All rights reserved.</p>
+    <nav class="flex flex-wrap gap-4 justify-center">
+      <a href="privacy-policy.html" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">Privacy Policy</a>
+      <a href="terms-of-service.html" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">Terms of Service</a>
+      <a href="sla.html" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">SLA</a>
+      <a href="security.html" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">Security</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); } });
+  }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => obs.observe(el));
+  setTimeout(() => revealEls.forEach(el => el.classList.add('revealed')), 400);
+
+  // Form submit
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const required = this.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(el => {
+      el.style.borderColor = '';
+      if (!el.value.trim()) { el.style.borderColor = '#ef4444'; valid = false; }
+    });
+    if (!valid) return;
+    this.style.display = 'none';
+    document.getElementById('success-panel').classList.remove('hidden');
+  });
+</script>
+</body>
+</html>
