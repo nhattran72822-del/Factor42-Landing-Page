@@ -10,20 +10,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
   <style>
-    body { font-family: 'Inter', sans-serif; background: #F0F4FF; color: #0A0F1E; -webkit-font-smoothing: antialiased; }
-    .gradient-text-blue { background: linear-gradient(135deg,#0066FF,#00B4D8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    /* Page-scoped typography for legal prose content */
     h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.2rem; font-weight: 700; color: #0A0F1E; margin-top: 2.5rem; margin-bottom: 0.75rem; }
     h3 { font-size: 1rem; font-weight: 600; color: #1e293b; margin-top: 1.5rem; margin-bottom: 0.5rem; }
     p, li { font-size: 0.9rem; color: #475569; line-height: 1.8; }
     ul { list-style: disc; padding-left: 1.5rem; margin-top: 0.5rem; }
-    .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; margin: 0.25rem 0.25rem 0.25rem 0; }
-    a.inline-link { color: #0066FF; text-decoration: underline; }
   </style>
 </head>
 <body>
 
-<header class="fixed top-0 left-0 right-0 z-50 py-4 border-b" style="background:rgba(240,244,255,.97);border-color:rgba(0,102,255,.1);backdrop-filter:blur(16px)">
+<header class="fixed top-0 left-0 right-0 z-50 py-4 border-b site-header">
   <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
     <a href="index.html" class="text-2xl font-bold tracking-tight text-gray-900">Factor<span
         class="gradient-text-blue">42</span></a>
@@ -162,7 +160,7 @@
   </div>
 </main>
 
-<footer class="border-t py-8 px-6" style="border-color:rgba(0,102,255,.1)">
+<footer class="border-t py-8 px-6 site-footer">
   <div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
     <p class="text-xs text-slate-500">&copy; 2026 Factor42, Inc. All rights reserved.</p>
     <nav class="flex flex-wrap gap-4">

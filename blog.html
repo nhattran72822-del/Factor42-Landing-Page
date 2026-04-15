@@ -10,52 +10,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; background-color: #F0F4FF; color: #0A0F1E; -webkit-font-smoothing: antialiased; margin: 0; }
-
-    .gradient-text-blue { background: linear-gradient(135deg,#0066FF,#00B4D8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .gradient-text      { background: linear-gradient(135deg,#0052CC,#0066FF 50%,#00B4D8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-
-    .btn-primary { background: linear-gradient(135deg,#0066FF,#0052CC); transition: filter .2s, transform .15s; }
-    .btn-primary:hover  { filter: brightness(1.12); }
-    .btn-primary:active { transform: scale(.98); }
-
-    .grid-bg {
-      background-image:
-        linear-gradient(rgba(0,102,255,.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,102,255,.06) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-
-    /* Article card */
-    .article-card { background: rgba(255,255,255,.9); border: 1px solid rgba(0,102,255,.1); border-radius: 20px; overflow: hidden; transition: border-color .2s, box-shadow .2s, transform .2s; display: flex; flex-direction: column; }
-    .article-card:hover { border-color: rgba(0,102,255,.3); box-shadow: 0 8px 32px rgba(0,102,255,.1); transform: translateY(-3px); }
-
-    /* Category pill */
-    .cat-pill { display: inline-block; padding: 0.2rem 0.65rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 700; letter-spacing: .02em; text-transform: uppercase; }
-
-    /* Featured card */
-    .featured-card { background: rgba(255,255,255,.92); border: 1px solid rgba(0,102,255,.14); border-radius: 24px; overflow: hidden; transition: box-shadow .2s; }
-    .featured-card:hover { box-shadow: 0 12px 40px rgba(0,102,255,.12); }
-
-    /* Filter pills */
-    .tag-pill { padding: 0.4rem 1rem; border-radius: 9999px; font-size: 0.78rem; font-weight: 600; border: 1px solid rgba(0,102,255,.2); background: rgba(255,255,255,.9); color: #475569; cursor: pointer; transition: all .18s; white-space: nowrap; user-select: none; }
-    .tag-pill:hover { border-color: #0066FF; color: #0066FF; }
-    .tag-pill.active { border-color: #0066FF; background: #0066FF; color: white; }
-
-    /* Reveal */
-    .reveal { opacity:0; transform:translateY(20px); transition: opacity .6s ease-out, transform .6s ease-out; }
-    .reveal.revealed { opacity:1; transform:none; }
-
-    .article-img { width: 100%; height: 180px; object-fit: cover; display: flex; align-items: center; justify-content: center; }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
 <!-- HEADER -->
-<header class="fixed top-0 left-0 right-0 z-50 py-4 border-b" style="background:rgba(240,244,255,.97);border-color:rgba(0,102,255,.1);backdrop-filter:blur(16px)">
+<header class="fixed top-0 left-0 right-0 z-50 py-4 border-b site-header">
   <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
     <a href="index.html" class="text-2xl font-bold tracking-tight text-gray-900"
       style="font-family:'Plus Jakarta Sans',sans-serif">Factor<span class="gradient-text-blue">42</span></a>
@@ -392,7 +352,7 @@
 
 </main>
 
-<footer class="border-t py-8 px-6" style="border-color:rgba(0,102,255,.1)">
+<footer class="border-t py-8 px-6 site-footer">
   <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
     <p class="text-xs text-slate-500">&copy; 2026 Factor42, Inc. All rights reserved.</p>
     <nav class="flex flex-wrap gap-4">
