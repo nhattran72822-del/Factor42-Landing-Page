@@ -255,6 +255,10 @@
               <span class="text-xs text-slate-500 leading-relaxed">I agree that Factor42 may contact me regarding this consultation request. View our <a href="privacy-policy.html" class="text-blue-600 underline hover:text-blue-800">Privacy Policy</a>. You can unsubscribe at any time.</span>
             </label>
 
+            <p id="submit-error" class="hidden text-sm text-red-600 text-center mb-3 p-3 rounded-lg" style="background:rgba(220,38,38,.06);border:1px solid rgba(220,38,38,.2)">
+              Something went wrong. Please try again or email us at <a href="mailto:hello@factor42media.com" class="underline">hello@factor42media.com</a>.
+            </p>
+
             <button type="submit" class="btn-primary w-full text-white font-semibold text-base py-4 px-6 rounded-xl shadow-lg">
               Book My Free Consultation →
             </button>
@@ -418,16 +422,42 @@
       return;
     }
 
-    // Simulate submission (replace with your actual endpoint / CRM integration)
     const btn = form.querySelector('button[type="submit"]');
     btn.textContent = 'Sending…';
     btn.disabled = true;
 
-    setTimeout(() => {
-      form.style.display = 'none';
-      successPanel.style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 900);
+    const payload = {
+      first_name:       form.first_name.value.trim(),
+      last_name:        form.last_name.value.trim(),
+      email:            form.email.value.trim(),
+      phone:            form.phone.value.trim(),
+      company:          form.company.value.trim(),
+      role:             form.role.value,
+      company_type:     form.company_type.value,
+      monthly_ad_spend: form.monthly_ad_spend.value,
+      platforms:        Array.from(platforms).map(cb => cb.value),
+      challenge:        form.challenge.value,
+      message:          form.message.value.trim(),
+    };
+
+    fetch('https://5vp6ipodlrhojthsgidzssmmnu0wwpil.lambda-url.us-east-1.on.aws/', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload),
+    })
+      .then(res => {
+        if (!res.ok) throw new Error('Server error: ' + res.status);
+        form.style.display = 'none';
+        successPanel.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+      .catch(() => {
+        btn.textContent = 'Book My Free Consultation →';
+        btn.disabled = false;
+        const errEl = document.getElementById('submit-error');
+        errEl.classList.remove('hidden');
+        errEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
   });
 </script>
 </body>
