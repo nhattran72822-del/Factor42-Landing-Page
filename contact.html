@@ -93,6 +93,9 @@
               <textarea id="message" name="message" rows="5" class="f42-input" placeholder="Tell us how we can help…" required style="resize:vertical;min-height:120px;"></textarea>
             </div>
 
+            <p id="submit-error" class="hidden text-sm text-red-600 text-center mb-3 p-3 rounded-lg" style="background:rgba(220,38,38,.06);border:1px solid rgba(220,38,38,.2)">
+              Something went wrong. Please try again or email us at <a href="mailto:hello@factor42media.com" class="underline">hello@factor42media.com</a>.
+            </p>
             <button type="submit" class="btn-primary w-full py-3.5 rounded-xl text-sm font-semibold text-white flex items-center justify-center gap-2">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4 20-7z"/></svg>
               Send Message
@@ -235,17 +238,51 @@
   setTimeout(() => revealEls.forEach(el => el.classList.add('revealed')), 400);
 
   // Form submit
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
+  const contactForm = document.getElementById('contact-form');
+  const contactSuccessPanel = document.getElementById('success-panel');
+  const contactSubmitError = document.getElementById('submit-error');
+
+  contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
     const required = this.querySelectorAll('[required]');
     let valid = true;
+
     required.forEach(el => {
       el.style.borderColor = '';
       if (!el.value.trim()) { el.style.borderColor = '#ef4444'; valid = false; }
     });
     if (!valid) return;
-    this.style.display = 'none';
-    document.getElementById('success-panel').classList.remove('hidden');
+
+    const btn = this.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    const payload = {
+      first_name: this.first_name.value.trim(),
+      last_name: this.last_name.value.trim(),
+      email: this.email.value.trim(),
+      company: this.company.value.trim(),
+      subject: this.subject.value,
+      message: this.message.value.trim(),
+    };
+
+    fetch('https://5vp6ipodlrhojthsgidzssmmnu0wwpil.lambda-url.us-east-1.on.aws/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+      .then(res => {
+        if (!res.ok) throw new Error('Server error: ' + res.status);
+        this.style.display = 'none';
+        contactSuccessPanel.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+      .catch(() => {
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+        contactSubmitError.classList.remove('hidden');
+        contactSubmitError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
   });
 </script>
 </body>
